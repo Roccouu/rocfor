@@ -1,0 +1,210 @@
+// ------------- ROCFORCSS -------------- //
+// ------------- BY Roccou -------------- //
+// ------ Potosí - Bolivia - 2019 ------- //
+// Roc Grid
+$edge: 100
+$gutter: .5
+$per: '%'
+
+// Permite convertir px a rem y rem a px.
+=pxtorem($p, $a)
+	$px: if($a == 0, 0, #{$a}px)
+	$rem: if($a == 0, 0, #{$a / $basefont}rem)
+	#{$p}: #{$px}
+	#{$p}: #{$rem}
+=remtopx($p, $a)
+	$px: if($a == 0, 0, #{$a * $basefont}px)
+	$rem: if($a == 0, 0, #{$a}rem)
+	#{$p}: #{$px}
+	#{$p}: #{$rem}
+
+// ---- Permite crear la clase one para diferentes media quieries.
+=rocss($media)
+	@for $i from 1 through $edge
+		$j: #{$i * (100 / $edge)}
+		$w: abs($i - ($gutter * 2))
+		.#{$media}one-
+			&#{$j} // No gutter */
+				width: #{$j}#{$per}
+			&g-#{$j}  // Horizontal gutter */
+				margin-left: $gutter#{$per}
+				margin-right: $gutter#{$per}
+				width: $w#{$per}
+			&gh-#{$j} // H&V gutter */
+				margin: $gutter#{$per}
+				width: $w#{$per}
+
+// ---- Permite crear layouts en la media querie indicada.
+=floatlayout($media)
+	.#{$media}floatleft > .#{$media}one
+		&, &-g, &-gh
+			float: left
+	.#{$media}floatright > .#{$media}one
+		&, &-g, &-gh
+			float: right
+	.#{$media}float, .#{$media}float:after, .#{$media}float:before
+		clear: both
+	.#{$media}float:after, .#{$media}float:before
+		content: ''
+		display: block
+
+=tablelayout($media)
+	.#{$media}table
+		display: table
+		& > .#{$media}one
+			&, &-g, &-gh
+				display: table-cell
+
+=inlinelayout($media)
+	.#{$media}inline
+		font-size: 0
+		& > .#{$media}one
+			&, &-g, &-gh
+				display: inline-block
+	.#{$media}block
+		font-size: 0
+		vertical-align: bottom
+		& > .#{$media}one
+			&, &-g, &-gh
+				display: block
+
+=flexlayout($media)
+	.#{$media}flex
+		display: flex
+		flex-wrap: wrap
+		& > .#{$media}one
+			&, &-g, &-gh
+				flex: none
+
+=alignments($media)
+	.#{$media}top > .#{$media}one
+		&, &-g, &-gh
+			vertical-align: top
+	.#{$media}middle > .#{$media}one
+		&, &-g, &-gh
+			vertical-align: middle
+	.#{$media}bottom > .#{$media}one
+		&, &-g, &-gh
+			vertical-align: bottom
+	.#{$media}baseline > .#{$media}one
+		&, &-g, &-gh
+			vertical-align: baseline
+
+// ---- Permite personalizar proporciones del modelo de caja.
+=textfonts($media)
+	.#{$media}left
+		text-align: left
+	.#{$media}center
+		text-align: center
+	.#{$media}right
+		text-align: right
+	.#{$media}justify
+		text-align: justify
+
+=fullmargins($media)
+	.#{$media}mfulltop
+		margin-top: 0
+	.#{$media}mfullright
+		margin-right: 0
+	.#{$media}mfullbottom
+		margin-bottom: 0
+	.#{$media}mfullleft
+		margin-left: 0
+	.#{$media}mauto
+		margin: auto
+	.#{$media}mcenter
+		margin-left: auto
+		margin-right: auto
+
+=displays($media)
+	.#{$media}d-block
+		display: block
+	.#{$media}d-none
+		display: none
+	.#{$media}d-inline
+		display: inline
+	.#{$media}d-iblock
+		display: inline-block
+	.#{$media}d-initial
+		display: initial
+
+=hwautos($media)
+	.#{$media}wauto
+		width: auto
+	.#{$media}hauto
+		height: auto
+
+// ---- Positions
+=positions($media)
+	.#{$media}sta
+		position: static
+	.#{$media}rel
+		position: relative
+	.#{$media}fix
+		position: fixed
+	.#{$media}abs
+		position: absolute
+	.#{$media}sti
+		position: sticky
+// ---- Properties
+=fonts( $a, $media )
+	@for $i from 0 through $a
+		.#{$media}f-#{$i}
+			+pxtorem('font-size', ((($i * .25) * $basefont ) / 1))
+
+=marpad($prop, $prefix, $to, $sufix, $media)
+	$dash: if($sufix == '', $sufix, #{$sufix}-)
+	$property: #{$prop}#{$sufix}
+	@for $i from 0 through $to
+		#{$media}#{$prefix}#{$dash}#{$i}
+			#{$property}: if($i == 0, $i, #{$i}#{$per})
+
+=heightwidths($prop, $sufix, $to, $media)
+	@for $i from 0 through $to
+		#{$media}#{$sufix}#{$i}
+			#{$prop}: if($i == 0, $i, #{$i}#{$per})
+
+// -------------- THEMES --------------
+=bolds($media)
+	.#{$media}thm-bold
+		font-weight: bold
+	.#{$media}thm-bolder
+		font-weight: bolder
+	.#{$media}thm-lighter
+		font-weight: lighter
+=overflows($media)
+	.#{$media}thm-oh
+		overflow: hidden
+	.#{$media}thm-oa
+		overflow: auto
+	.#{$media}thm-ox
+		overflow-x: auto
+	.#{$media}thm-oy
+		overflow-y: auto
+	.#{$media}thm-oys
+		overflow-y: scroll
+	.#{$media}thm-oxs
+		overflow-x: scroll
+	.#{$media}thm-oi
+		overflow: inherit
+=lists($media)
+	.#{$media}thm-listnone
+		list-style-type: none
+	.#{$media}thm-listdisc
+		list-style-type: disc
+	.#{$media}thm-listsquare
+		list-style-type: square
+	.#{$media}thm-listroman
+		list-style-type: upper-roman
+	.#{$media}thm-listromanlow
+		list-style-type: lower-roman
+	.#{$media}thm-listin > li
+		list-style-position: inside
+	.#{$media}thm-listout
+		+remtopx('padding-left', $h4)
+=requireds
+	.thm-required::after
+		content: ' (*)'
+		color: $color-error
+		+Tablet
+			content: ' (Requerido).'

@@ -1,0 +1,48 @@
+include ./mixins.pug
+doctype html
+html(lang="es")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible" content="ie=edge, chrome=1")
+		title= title
+		meta(name="description" content="Reactive Object and Components with JavaScript")
+		meta(name="apple-mobile-web-app-capable" content="yes")
+		meta(name="apple-mobile-web-app-status-bar-style" content="black")
+		meta(name="robots" content="index, follow")
+		link(rel="shortcut icon", type="image/png", href="img/favicon.ico")
+		link(rel="shortcut icon" type="image/png" href="img/favicon.png")
+		link(rel="shortcut icon" type="image/svg+xml" href="img/favicon.svg")
+		link(rel="apple-touch-icon" size="" href="img/apple-touch-icon.png")
+		link(rel="author" type="text/plain" href="humans.txt")
+		link(rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml")
+		// build:css ./assets/css/styles.min.css
+		each css in files.sass
+			link(rel="stylesheet", href=`${css}`)
+		// endbuild
+	body
+		#app.Fullpage.bgc-1
+			header#header.Header.roc-fluid.p-2.m-bottom-3.bg-0
+				#header-title.Header-title.roc
+					h1= title
+						em.thm-subtitle  Reactive Objects and Components for <strong class="f-7">JavaScript&TRADE;</strong>
+					p Una librería para el desarrollo web en el lado del cliente.
+				nav#header-menu.Header-nav.roc.inline
+					ul.Header-items.thm-listnone.roc.inline.one.one-60
+						li.one.one-g-33 #[a(href="#/tutorial", id="tuto", class="d-block  center  button") Tutorial]
+						li.one.one-g-33 #[a(href="#/samples", id="samp", class="d-block  center  button") Ejemplos]
+						li.one.one-g-33 #[a(href="#/docs", id="docs", class="d-block  center  button") Documentación]
+					ul.Header-logo.thm-listnone.inline.one.one-40.right
+						li.one.one-g-50.p-5 #[a(href="https://github.com/Roccouu/rocfor", id="git", class="Link-default  d-block") GitHub]
+						li.one.one-g-50 #[a(href="#/", id="home", class="Link-default  d-block") <img src="./assets/img/rocjs.svg" alt="Rocjs" class="Image" />]
+			#container.Body.Container.roc.co-1
+			noscript
+				#noscript.Body.Container.roc.center
+					.one.p-2
+						p.thm-important Este sistema requiere JavaScript para funcionar. Por favor, habilite esta funcionalidad en su navegador.
+			input(type="hidden", name="" class="docss docss-docss roc-fluid p-2 m-top-5 Docs-nav Docs-items thm-listnone roc inline one-80 one one-g-50 p-5 Button Button-default Link d-block center subContainer-roc Container-roc-banner roc-fluid color-grey-1 p-2 thm-subtitle Intro-roc one-g-70 mfullleft mfullright Padded-list thm-important center Examples m-bottom-5 Example roc inline top m-top25 Example-title color-grey-4 Example-content one-60 h-50 Code Codetext Coderesult one one-40 thm-oy p-1 h-100 p-top-2 p-bottom-2 p-left-2 Result Tuto-roc Container-roc-banner roc-fluid color-grey-1 p-2 thm-subtitle Intro-roc one-g-70 mfullleft mfullright thm-important center Examples Example m-top25 Example-title color-grey-4 Example-content one-60 h-50 Codetext h-100 Tuto-content roc inline top one-g-80 Download m-top5 Aside Tuto-section Coderesult one-40 thm-oy p-1 p-top-2 p-bottom-2 p-left-2 Result Padded-list m-bottom-5 Code Tuto-aside one one-g-20 m-top-5 rel thm-listnone fix")
+
+		// build:js ./assets/js/index.min.js
+		each js in files.es6
+			script(src=`${js}`)
+		// endbuild

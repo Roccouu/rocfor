@@ -1,0 +1,36 @@
+// ------------- ROCFORCSS -------------- //
+// ------------- BY Roccou -------------- //
+// ------ Potosí - Bolivia - 2019 ------- //
+/* --------------- BUTTONS -------------- */
+.Button
+	border: none
+	border-radius: .4rem
+	padding: .5rem 1rem
+	transition: all .3s
+	&:hover
+		cursor: pointer
+		color: white
+		transition: all .3s
+	&:disabled
+		cursor: default
+		background-color: $color-comment
+	&-default
+		background-color: $color-blue-2
+		color: $color-blue-1
+		&:hover
+			background-color: $color-blue-0
+	&-error
+		background-color: $color-red-2
+		color: $color-red-1
+		&:hover
+			background-color: $color-red-0
+	&-success
+		background-color: $color-green-2
+		color: $color-green-1
+		&:hover
+			background-color: $color-green-0
+	&-warn
+		background-color: $color-orange-2
+		color: $color-orange-1
+		&:hover
+			background-color: $color-orange-0

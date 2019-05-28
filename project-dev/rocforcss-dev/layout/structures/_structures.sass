@@ -1,0 +1,27 @@
+// ------------- ROCFORCSS -------------- //
+// ------------- BY Roccou -------------- //
+// ------ Potosí - Bolivia - 2019 ------- //
+/* ---------- STRUCTURE PAGES ----------- */
+// ------------ --------------- ------------
+// Mobible Header & body. Footer fixed down
+.Fullpage
+	position: absolute
+	top: 0
+	left: 0
+	min-height: 100%
+	width: 100%
+	& > .Header, & > .Footer
+		z-index: 9999
+	& > .Header, & > .Footer, & > .Body
+		width: 100%
+	& > .Footer
+		position: absolute
+		bottom: 0
+	// ------ Fixed Header. Footer fixed down ------
+	&-fixed-header
+		& > .Header
+			position: fixed
+	// --------- Fixed Header. Footer fixed ---------
+	&-app
+		& > .Header, & > .Footer
+			position: fixed

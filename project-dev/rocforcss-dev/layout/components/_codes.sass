@@ -1,0 +1,21 @@
+// ------------- ROCFORCSS -------------- //
+// ------------- BY Roccou -------------- //
+// ------ Potosí - Bolivia - 2019 ------- //
+/* ------------- PRE CODES -------------- */
+.Code
+	background-color: $color-grey-3
+	overflow-x: auto
+	box-shadow: inset 64px 0 0 0 $color-grey-0
+	box-shadow: inset 4rem 0 0 0 $color-grey-0
+	& > ol
+		counter-reset: listCounter
+		list-style: none
+		+remtopx(padding-left, 1)
+		& > li
+			color: $color-blue-1
+			&::before
+				counter-increment: listCounter
+				content: counter(listCounter)
+			& > code
+				color: $color-grey-1
+				+remtopx(padding-left, 3)

@@ -1,0 +1,155 @@
+// ------------- ROCFORCSS -------------- //
+// ------------- BY Roccou -------------- //
+// ------ Potosí - Bolivia - 2019 ------- //
+/* --------------- RESET ---------------- */
+html
+	font-size: #{$basefont}px
+	font-family: "Trebuchet MS", sans, serif
+	text-size-adjust: 100%
+
+*, *:before, *:after
+	box-sizing: border-box
+	+pxtorem('font-size', $basefont)
+	margin: 0
+	padding: 0
+*:disabled
+	pointer-events: none
+
+/* ! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary
+	display: block
+audio,
+canvas,
+progress,
+video
+	display: inline-block
+audio:not([controls])
+	display: none
+	height: 0
+progress
+	vertical-align: baseline
+template,
+[hidden]
+	display: none
+a
+	background-color: transparent
+	-webkit-text-decoration-skip: objects
+a:active,
+a:hover
+	outline-width: 0
+b,
+strong
+	font-weight: inherit
+b,
+strong
+	font-weight: bolder
+code
+	background-color: $color-grey-1
+h1
+	+remtopx('font-size', $h1)
+	margin: 4px 0
+	margin: 0.25rem 0
+h2
+	+remtopx('font-size', $h2)
+h3
+	+remtopx('font-size', $h3)
+h4
+	+remtopx('font-size', $h4)
+h5
+	+remtopx('font-size', $h5)
+h6
+	+remtopx('font-size', $h6)
+p
+	font-size: inherit
+small
+	font-size: 80%
+sub,
+sup
+	font-size: 75%
+	line-height: 0
+	position: relative
+	vertical-align: baseline
+sub
+	+pxtorem('bottom', -4)
+sup
+	+pxtorem('top', -4)
+img
+	border-style: none
+svg:not(:root)
+	overflow: hidden
+figure
+	margin: 16px 40px
+	margin: 1rem 2.5rem
+hr
+	box-sizing: content-box
+	height: 0
+	overflow: visible
+	width: 100%
+button,
+input,
+select,
+textarea,
+	+pxtorem(font, $basefont)
+	margin: 0
+optgroup
+	font-weight: bold
+button,
+input
+	overflow: visible
+button,
+select
+	text-transform: none
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"]
+	-webkit-appearance: button
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner
+	border-style: none
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring
+	outline: 1px dotted ButtonText
+	outline: 0.0625rem dotted ButtonText
+fieldset
+	+pxtorem(margin, 2)
+	padding: 5.6px 10px 12px
+	padding: 0.35rem 0.625rem 0.75rem
+legend
+	color: inherit
+	display: table
+	max-width: 100%
+	white-space: normal
+textarea
+	overflow: auto
+	resize: none
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button
+	height: auto
+[type="search"]
+	-webkit-appearance: textfield
+	+pxtorem(outline-offset, -2)
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration
+	-webkit-appearance: none
+::-webkit-input-placeholder
+	color: inherit
+	opacity: 0.54
+::-webkit-file-upload-button
+	-webkit-appearance: button
+	+pxtorem(font, $basefont)

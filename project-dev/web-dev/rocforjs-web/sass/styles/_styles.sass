@@ -1,0 +1,69 @@
+.Coderesult
+	border: thin solid #1D1E22
+.Coderesult .Result
+	padding: 0.5rem .5rem 1.5rem .5rem
+.Header-reduced
+	position: fixed
+	top: 0
+	left: 0
+	padding-top: 0
+	padding-bottom: 0
+	& *
+		vertical-align: middle
+	& > .Header-title
+		position: absolute
+		left: 100%
+		top: 100%
+.Header-logo img
+	height: 35%
+	width: 35%
+.Footer a, .Tuto-aside li a, .Docs-items a:hover
+	color: $color-primary-1
+	text-decoration: none
+.Container, .Container-biggest
+	padding-bottom: 15rem
+.Container-biggest
+	padding-top: 5.8rem
+.Container-biggest .Aside
+	padding-top: 6.5rem
+
+.Padded-list
+	margin-top: 1.5rem
+	margin-bottom: 1.5rem
+	padding-left: 1rem
+.Padded-list li
+	margin-top: 0.5rem
+.Tuto-aside
+	& > ul
+		border-left-color: $color-primary-0
+		border-left-style: solid
+		+pxtorem(border-left-width, 1)
+		+remtopx(padding-left, 1)
+	& li
+		padding-top: .5rem
+		& a
+			color: $color-primary-0
+			border-color: $color-primary-0
+			border-style: solid
+			+pxtorem(border-width, 1)
+			display: block
+			padding: 0.5rem
+			transition: all .3s
+			&:hover
+				background-color: $color-primary-0
+				color: $color-primary-1
+				transition: all .3s
+
+.Example
+	height: 300px
+	height: 18.75rem
+	&-title
+		color: white
+		height: 15%
+	&-title
+		height: 15%
+	&-content
+		height: 85%
+
+.Coderesult
+	height: 85%

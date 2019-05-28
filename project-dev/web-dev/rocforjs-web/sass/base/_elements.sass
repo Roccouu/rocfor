@@ -1,0 +1,22 @@
+h2, h3, pre
+	+remtopx(margin-bottom, 1)
+h1
+	+remtopx(margin-top, 1)
+	+remtopx(margin-bottom, 1.5)
+h2
+	+remtopx(margin-top, .7)
+h3
+	+remtopx(margin-top, .5)
+hr
+	+remtopx(margin-bottom, 2)
+pre
+	+pxtorem(border-width, 1)
+	border-style: solid
+	border-color: $color-primary-0
+	+remtopx(padding, .5)
+	+remtopx(padding-bottom, 1.5)
+	& code
+		background-color: transparent
+p
+	+remtopx(margin-top, .6)
+	+remtopx(margin-bottom, .7)

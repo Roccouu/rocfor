@@ -1,0 +1,26 @@
+// ------------- ROCFORCSS -------------- //
+// ------------- BY Roccou -------------- //
+// ------ Potosí - Bolivia - 2019 ------- //
+/* ------------- BREADCUMBS ------------- */
+.Breadcumb
+	background-color: $color-blue-2
+	border-radius: .4rem
+	color: $color-blue-1
+	padding: .5rem 1rem
+	& > li
+		list-style: none
+		display: inline-block
+		& > span
+			+remtopx('margin-left', .5)
+			+remtopx('margin-right', .5)
+			text-align: center
+		& > a
+			color: $color-blue-1
+			text-decoration: none
+			transition: all .3s
+			&:hover
+				color: white
+				transition: all .3s
+		& > a.current
+			color: $color-blue-4
+			pointer-events: none

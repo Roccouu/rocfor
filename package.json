@@ -1,0 +1,56 @@
+{
+	"name": "rocfor",
+	"version": "1.0.0",
+	"description": "A library for creation of reactive objects and components.",
+	"main": "package.json",
+	"directories": {
+		"test": "test"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"r-sass": "gulp r-sass",
+		"r-css": "gulp r-css",
+		"r-js": "gulp r-js",
+		"r-jsmin": "gulp r-jsmin",
+		"rocfor": "npm run r-sass && npm run r-css && npm run r-js && npm run r-jsmin",
+
+		"rw-pug": "gulp rw-pug",
+		"rw-sass": "gulp rw-sass",
+		"rw-es6": "gulp rw-es6",
+		"rocfortempweb": "npm run rw-pug && npm run rw-sass && npm run rw-es6"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Roccouu/rocfor.git"
+	},
+	"keywords": [
+		"R",
+		"Rocfor",
+		"Rocforjs"
+	],
+	"author": "Roberto Carlos Romay Medina <rocky.romay@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Roccouu/rocfor/issues"
+	},
+	"homepage": "https://github.com/Roccouu/rocfor#readme",
+	"devDependencies": {
+		"@babel/core": "^7.4.5",
+		"@babel/preset-env": "^7.4.5",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^6.1.0",
+		"gulp-babel": "^8.0.0",
+		"gulp-clean-css": "^4.2.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-htmlmin": "^5.0.1",
+		"gulp-if": "^2.0.2",
+		"gulp-postcss": "^8.0.0",
+		"gulp-pug": "^4.0.1",
+		"gulp-rename": "^1.4.0",
+		"gulp-sass": "^4.0.2",
+		"gulp-uglify": "^3.0.2",
+		"gulp-useref": "^3.1.6",
+		"postcss-uncss": "^0.16.1",
+		"uncss": "^0.16.2"
+	}
+}

@@ -1,0 +1,11 @@
+// Permite convertir px a rem y rem a px.
+=pxtorem($p, $a)
+	$px: if($a == 0, 0, #{$a}px)
+	$rem: if($a == 0, 0, #{$a / $basefont}rem)
+	#{$p}: #{$px}
+	#{$p}: #{$rem}
+=remtopx($p, $a)
+	$px: if($a == 0, 0, #{$a * $basefont}px)
+	$rem: if($a == 0, 0, #{$a}rem)
+	#{$p}: #{$px}
+	#{$p}: #{$rem}

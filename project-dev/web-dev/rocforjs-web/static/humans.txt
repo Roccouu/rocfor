@@ -1,0 +1,15 @@
+/* humanstxt.org/ */
+/* Roberto Carlos Romay Medina - Metalurgical Engineer & Fulstack web developer */
+
+/* TEAM */
+	Design and Programming: Roberto Carlos Romay Medina (Roccou)
+	Contact: rocky.romay [at] gmail.com
+	Twitter: [at] rocouuu
+	From: Potosí - Bolivia
+
+/* SITE */
+	Last update: 2019/05/27
+	Language: Español/English
+	Standars: HTML5, CSS3, JavaScript, Node.js, NPM
+	Components: rocfor.css, rocfor.js, gulp, gulp-autoprefixer, gulp-babel, gulp-clean-css, gulp-concat, gulp-htmlmin, gulp-pug, gulp-sass, gulp-uglify, gulp-postcss, gulp-useref, postcss-uncss, uncss, Normalize
+	Software: Git & GitHub, Pencil, StarUML, VSCode, Inkscape, Chrome, Firefox, Linux Ubuntu Mate 18.04 LTS
