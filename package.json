@@ -17,7 +17,21 @@
 		"rw-pug": "gulp rw-pug",
 		"rw-sass": "gulp rw-sass",
 		"rw-es6": "gulp rw-es6",
-		"rocfortempweb": "npm run rw-pug && npm run rw-sass && npm run rw-es6"
+		"rocfortempweb": "npm run rw-pug && npm run rw-sass && npm run rw-es6",
+
+		"rw-css": "gulp rw-css",
+		"rw-js": "gulp rw-js",
+		"rw-html": "gulp rw-html",
+		"rw-static": "gulp rw-static",
+		"rw-img": "gulp rw-img",
+		"rw-vendor": "gulp rw-vendor",
+		"rocforweb": "npm run rw-css && npm run rw-js && npm run rw-html && npm run rw-static && npm run rw-img && npm run rw-vendor",
+
+		"docs-html": "gulp docs-html",
+		"docs": "gulp docs",
+		"rocfordocs": "npm run docs && npm run docs-html",
+
+		"project:dist": "npm run rocfortempweb && npm run rocforweb && npm run rocfordocs"
 	},
 	"repository": {
 		"type": "git",

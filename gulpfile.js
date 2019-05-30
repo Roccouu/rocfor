@@ -22,7 +22,8 @@ const gulp = require('gulp'),
 					src: './project-dev/web-dev/rocforjs-web',
 					temp: './project-dev/web-dev/rocforjs-web/tempweb',
 					dist: './assets'
-				}
+				},
+				rdoc: { src: './project-dev/web-dev/rocforjs-docs', dest: './docs' }
 			},
 			files = {
 				sass: [ `../../../../project-dist/rocforcss/rocfor-${version}.min.css`, './css/rocforweb.css' ],
@@ -36,6 +37,24 @@ const gulp = require('gulp'),
 					'./js/assets/spaindex.js',
 					'./js/assets/index.js'
 				],
+				rw: {
+					css: [ `${dir.rocfor.dest}/rocforcss/rocfor-${version}.min.css`, `${dir.rweb.temp}/css/rocforweb.css` ],
+					js: [
+						`${dir.rocfor.dest}/rocforjs/rocfor-${version}.min.js`,
+						`${dir.rweb.temp}/js/SimpleComponent/simplecomponent.js`,
+						`${dir.rweb.temp}/js/Todo/todo.js`,
+						`${dir.rweb.temp}/js/Countdown/countdown.js`,
+						`${dir.rweb.temp}/js/assets/contents/contents.js`,
+						`${dir.rweb.temp}/js/assets/main.js`,
+						`${dir.rweb.temp}/js/assets/spaindex.js`,
+						`${dir.rweb.temp}/js/assets/index.js`
+					],
+					html: `${dir.rweb.temp}/index.html`,
+					cssmin: 'styles.min.css',
+					jsmin: 'index.min.js',
+					static: `${dir.rweb.src}/static/*.*`,
+					img: [`${dir.rweb.src}/img/favicon.*`, `${dir.rweb.src}/img/apple-touch-icon.png`, `${dir.rweb.src}/img/rocforjs.svg`]
+				}
 			},
 			opt = {
 				pug: {
@@ -47,7 +66,9 @@ const gulp = require('gulp'),
 				},
 				sass: { outputStyle: 'expanded' },
 				es6 : { presets : ['@babel/env'] },
-				autoprefixer: { browsers: ['last 5 versions'], cascade: false }
+				autoprefixer: { browsers: ['last 5 versions'], cascade: false },
+				postcss: { plugins: [ uncss( { html: [`${dir.rweb.temp}/index.html`] } ) ] },
+				htmlmin: { collapseWhitespace: true }
 			}
 
 // Gulp Rocfor tasks
@@ -101,4 +122,55 @@ gulp.task('rw-es6', done => {
 		.pipe( babel( opt.es6 ) )
 		.pipe( gulp.dest( `${dir.rweb.temp}/js` ) )
 		done()
+});
+
+gulp.task('rw-css', () => {
+	return gulp
+						.src( files.rw.css )
+						.pipe( concat( files.rw.cssmin ) )
+						.pipe( postcss( opt.postcss.plugins ) )
+						.pipe( cleancss() )
+						.pipe( gulp.dest( `${dir.rweb.dist}/css` ))
+});
+gulp.task('rw-js', () => {
+	return gulp
+						.src( files.rw.js )
+						.pipe( concat( files.rw.jsmin ) )
+						.pipe( uglify() )
+						.pipe( gulp.dest(`${dir.rweb.dist}/js`) )
+});
+gulp.task('rw-html', () => {
+	return gulp
+						.src( files.rw.html )
+						.pipe( useref() )
+						// .pipe( htmlmin( opt.htmlmin ) )
+						.pipe( gulp.dest('./') )
+});
+gulp.task('rw-static', () => {
+	return gulp
+						.src( files.rw.static )
+						.pipe( gulp.dest( './' ) )
+});
+gulp.task('rw-img', () => {
+	return gulp
+						.src( files.rw.img )
+						.pipe( gulp.dest( `${dir.rweb.dist}/img` ) )
+});
+gulp.task('rw-vendor', () => {
+	return gulp
+						.src( `${dir.rweb.src}/vendors/fonts/fonts/*.*` )
+						.pipe( gulp.dest( `${dir.rweb.dist}/css/fonts` ) )
+});
+
+// Gulp Rocfor-docs tasks
+gulp.task('docs-html', () => {
+	return gulp
+						.src( `${dir.rdoc.src}/*.html` )
+						.pipe( useref() )
+						.pipe( gulp.dest( dir.rdoc.dest ) )
+});
+gulp.task('docs', () => {
+	return gulp
+						.src( `${dir.rdoc.src}/**/` )
+						.pipe( gulp.dest( dir.rdoc.dest ) )
 });

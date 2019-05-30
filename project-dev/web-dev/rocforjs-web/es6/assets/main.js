@@ -74,10 +74,10 @@ class Main extends R.Component {
 					nav#docss-menu.Docs-nav.roc.M-inline
 						ul.Docs-items.thm-listnone.roc.M-inline.one.M-one-80
 							li.one.M-one-g-50.p-5
-								a#aweb.button.button-1.d-block.center(href="./assets/docs/index.html", title="Visitar sitio web") Ver documentación`)
+								a#aweb.button.button-1.d-block.center(href="./docs/index.html", title="Visitar sitio web") Ver documentación`)
 		// p Puede descargar el libro #[em #[strong Rocjs, una librería para JavaScript ]](Español)
 		// 					li.one.one-g-50.p-5
-		// 						a#rbook.button.button-1.d-block.center(href="./assets/book/rocfor.pdf", title="Descargar Libro") Descargar Libro`)
+		// 						a#rbook.button.button-1.d-block.center(href="./book/rocfor.pdf", title="Descargar Libro") Descargar Libro`)
 	}
 	createFHF () {
 		this.fhf = this.fhf.createComponent(
