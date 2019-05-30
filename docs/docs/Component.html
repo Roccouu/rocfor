@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>JSDoc: Object Component</title>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+		<title>Rocfor.js Docs</title>
+		<meta name="description" content="Rocfor.js Documentation about Object Component">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="robots" content="index, follow">
+		<link rel="shortcut icon" type="image/png" href="../assets/img/favicon.ico">
+		<link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
+		<link rel="shortcut icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+		<link rel="apple-touch-icon" size="" href="../assets/img/apple-touch-icon.png">
+		<link rel="author" type="text/plain" href="../humans.txt">
+		<link rel="sitemap" type="application/xml" title="Sitemap" href="../sitemap.xml">
+
+		<script src="scripts/prettify/prettify.js"> </script>
+		<script src="scripts/prettify/lang-css.js"> </script>
+		<!--[if lt IE 9]>
+				<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<![endif]-->
+		<link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+		<link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+
+		<link rel="stylesheet" href="../assets/css/styles.min.css">
+	</head>
+
+	<body>
+		<div class="Fullpage Fullpage-fixed-header bgc-1">
+			<div class="Header roc-fluid p-2 m-bottom-3 bg-0 center">
+				<div class="roc">
+					<div class="one">
+						<a href="https://roccouu.github.io/rocfor/">
+							<img height="50px" width="50px" src="../assets/img/rocforjs.svg" alt="">
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="Body Container roc M-inline M-top  co-1  rel  m-top-6">
+				<div id="main" class="one  M-one-70">
+					<h1 class="page-title">Object: Component</h1>
+					<section class="mauto  M-m-right-2">
+						<header>
+							<h2>Component</h2>
+						</header>
+						<article>
+							<div class="container-overview">
+								<div class="description"><strong>Component</strong> is a method of R.Component that allows creation of
+									HTMLElement Components. It is created from a string parameter called <em>componentString</em>, this is a
+									group of <em>tagstrings</em> with a tab indentation (as blockStrings); this is important. To create a
+									Component HTMLElement all Tag's basis are applicable, so, in a componentString it is possible to send
+									function callbacks, scope, rvars, props and Markdown contents. In a Component, just one main Element can
+									hold all child Elements, if a siblings Elements is sended, Component will wrap all into a <em>div</em>
+									Element by default. In Component, each Element can have child Elements. As in Tag, Component can be
+									initialized using two ways, the indirect case (assignin Component at any variable: <code>this.myComp =
+										this.Component()</code>), where Component will return an JS Object with a method called
+									<em>createComponent</em>. Or sending the <em>componentString</em> in the assignment in wich case Component
+									will return a new Component Object instance.
+								</div>
+								<h3>Example</h3>
+								<pre class="prettyprint"><code>// As in Tag, it is possible to declare a new variable assigning Component. (Note it is not important declare a new Component()).
+class TestComponent extends R.Component {
+	constructor (props) {
+		super(props)
+		this.mycomp = this.Component() // Direct assignment. Now is possible create a new Component Object in any method of current class.
+		console.log(this.mycomp)
+		// Console will log:
+		{}
+		__proto__:
+		createComponent: ƒ (componentString, fn, scope, rvars, props)
+		__proto__: Object
+	}
+}
+// The direct way is sending componentString directly in assignment:
+...
+this.mycomp = this.Component(
+`Hello
+	World!`) // See how componentString is indented with a tab space and it's tag name are ommited too.
+consol.log(this.mycomp)
+// Console will log the Component Object instance returned by this.Component:
+Component {classlist: null, idDOM: null, idlist: null, component: div, events: null, …}
+	classlist: null
+	compchild: [{…}]
+	compmain: {classlist: null, idlist: null, idDOM: null, tagstrings: {…}, child: null}
+	component: div
+	compstrings: {blockstring: "div Hello↵	div World!", myblockString: "Hello↵			World!"}
+	events: null
+	idDOM: null
+	idlist: null
+	__proto__:
+		getChild: ƒ (index_or_id_child)
+		compstringChild: ƒ (index_or_id_child)
+		delComponent: ƒ ()
+		getComponent: ƒ ()
+		innerHTML: ƒ (htmltxt, index_or_id_child)
+		render: ƒ (where)
+		textContent: ƒ (txt, index_or_id_child)
+		__proto__: Object</code></pre>
+							</div>
+							<h2 id="Properties" class="Aside  name-group">Properties</h2>
+							<div class="M-component">
+								<h4 class="name  name-title" id="component"><span class="type-signature"></span>component<span class="type-signature"></span></h4>
+								<div class="M-content">
+									<div class="description">
+										<strong>component</strong> is the final Component HTMLElemnt.
+									</div>
+									<h5 class="subsection-title">Properties:</h5>
+									<div class="table-wrap">
+										<table class="props">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Type</th>
+													<th class="last">Description</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="name"><code>component</code></td>
+													<td class="type">
+														<span class="param-type">HTMLElement</span>
+													</td>
+													<td class="description last">The final Component HTMLElemnt.</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="M-compmain">
+								<h4 class="name  name-title" id="compmain"><span class="type-signature"></span>compmain<span class="type-signature"></span></h4>
+								<div class="M-content">
+									<div class="description">
+										<strong>compmain</strong> is an JS Object with all Component main Element properties as it's own tagstring or
+										idlist, or classlist, or child Elements.
+									</div>
+									<h5 class="subsection-title">Properties:</h5>
+									<div class="table-wrap">
+										<table class="props">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Type</th>
+													<th class="last">Description</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="name"><code>compmain</code></td>
+													<td class="type">
+														<span class="param-type">Object</span>
+														|
+														<span class="param-type">null</span>
+													</td>
+													<td class="description last">A list of all Component main properties.</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="M-compstrings">
+								<h4 class="name  name-title" id="compstrings"><span class="type-signature"></span>compstrings<span class="type-signature"></span></h4>
+								<div class="M-content">
+									<div class="description">
+										<strong>compstrings</strong> is a JS Object with <em>compstring</em> and <em>mycompString</em> strings.
+									</div>
+									<h5 class="subsection-title">Properties:</h5>
+									<div class="table-wrap">
+										<table class="props">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Type</th>
+													<th class="last">Description</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="name"><code>compstrings</code></td>
+													<td class="type">
+														<span class="param-type">Object</span>
+														|
+														<span class="param-type">null</span>
+													</td>
+													<td class="description last">A list of Component compstrings.</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="M-events">
+								<h4 class="name  name-title" id="events"><span class="type-signature"></span>events<span class="type-signature"></span></h4>
+								<div class="M-content">
+									<div class="description">
+										<strong>events</strong> is an JS Object with all Component events list.
+									</div>
+									<h5 class="subsection-title">Properties:</h5>
+									<div class="table-wrap">
+										<table class="props">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Type</th>
+													<th class="last">Description</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="name"><code>events</code></td>
+													<td class="type">
+														<span class="param-type">Object</span>
+														|
+														<span class="param-type">null</span>
+													</td>
+													<td class="description last">A list of all Component's events.</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="M-classlist">
+								<h4 class="name  name-title" id="classlist"><span class="type-signature"></span>classlist<span class="type-signature"></span></h4>
+								<div class="M-content">
+									<div class="description">
+										<strong>classlist</strong> is an Array of strings, each string is a class used in whole Component final
+										HTMLElement (included Markdown contents). The purpose of this property is to facility all classes applied in
+										each Element of final HTMLElement. Rocforjs do not creates .html files to be used with some tool that selects
+										all don't used classes of some css framework, but, with this property it is possible to create a hidden HTML
+										tag that holds all those classlist allowing the possibility of exclude all don't used classes from css. It is
+										util (per example) when project is created under <strong>NPM</strong> ambient.
+									</div>
+									<h5 class="subsection-title">Properties:</h5>
+									<div class="table-wrap">
+										<table class="props">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Type</th>
+													<th class="last">Description</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="name"><code>classlist</code></td>
+													<td class="type">
+														<span class="param-type">Array</span>
+														|
+														<span class="param-type">null</span>
+													</td>
+													<td class="description last">All classes used in each Component's HTMLElements.</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="M-idDOM">
+								<h4 class="name  name-title" id="idDOM"><span class="type-signature"></span>idDOM<span class="type-signature"></span></h4>
+								<div class="M-content">
+									<div class="description">
+										<strong>idDOM</strong> returns an Array list with all id's that already exists in DOM, in this case, Component
+										will warn in console this situation; it is better to change the coincident id's or an error will be generated.
+									</div>
+									<h5 class="subsection-title">Properties:</h5>
+									<div class="table-wrap">
+										<table class="props">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Type</th>
+													<th class="last">Description</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="name"><code>idDom</code></td>
+													<td class="type">
+														<span class="param-type">Array</span>
+													</td>
+													<td class="description last">All DOM id's reppeated in Component.</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="M-idlist">
+								<h4 class="name  name-title" id="idlist"><span class="type-signature"></span>idlist<span class="type-signature"></span></h4>
+								<div class="M-content">
+									<div class="description">
+										<strong>idlist</strong> returns an Array list with all Component id's or null if Component does not have id's.
+									</div>
+									<h5 class="subsection-title">Properties:</h5>
+									<div class="table-wrap">
+										<table class="props">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Type</th>
+													<th class="last">Description</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="name"><code>idlist</code></td>
+													<td class="type">
+														<span class="param-type">Array</span>
+													</td>
+													<td class="description last">All id's of all HTMLElements in Component.</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="M-compchild">
+								<h4 class="name  name-title" id="compchild"><span class="type-signature"></span>compchild<span class="type-signature"></span></h4>
+								<div class="M-content">
+									<div class="description">
+										<strong>compchild</strong> is an Array of Objects with all Component child Elements.
+									</div>
+									<h5 class="subsection-title">Properties:</h5>
+									<div class="table-wrap">
+										<table class="props">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Type</th>
+													<th class="last">Description</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="name"><code>compchild</code></td>
+													<td class="type">
+														<span class="param-type">Object</span>
+														|
+														<span class="param-type">null</span>
+													</td>
+													<td class="description last">A list of all Component child properties.</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<h2 id="Methods" class="Aside  name-group">Methods</h2>
+							<div class="M-compChild">
+								<h4 class="name  name-title" id="compChild"><span class="type-signature"></span>compChild<span class="signature">(index_or_id_child<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {HTMLElement|undefined|null}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										<strong>compChild</strong> is a Component's method with wich can get all Component final HTMLElement children
+										or just one of it.
+									</div>
+									<h5>Parameters:</h5>
+									<div class="table-wrap">
+										<table class="params">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Type</th>
+													<th>Attributes</th>
+													<th class="last">Description</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="name"><code>index_or_id_child</code></td>
+													<td class="type">
+														<span class="param-type">String</span>
+														|
+														<span class="param-type">Number</span>
+													</td>
+													<td class="attributes">
+														&lt;optional><br>
+													</td>
+													<td class="description last">The id or index of searched Element.</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- An HTMLElement child or undefined if param is wrong or null if Component does not have any child Element.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">HTMLElement</span>
+											|
+											<span class="param-type">undefined</span>
+											|
+											<span class="param-type">null</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.mycomp = this.Component(`
+Hello
+	World!
+	#greet Hello Rocforjs!`)
+// It works with the child index (first Component's child has index 0):
+this.mycomp.compChild(0) // &lt;div>World!&lt;/div>
+// It works with the child id (Component will search on all children Elements and it's child Elements too):
+this.mycomp.compChild('greet') // &lt;div id="greet">Hello Rocforjs!&lt;/div>
+// Or it will return an Array list with all child Component's HTMLElements:
+this.mycomp.compChild() // [&lt;div>World!&lt;/div>, &lt;div id="greet">Hello Rocforjs!&lt;/div>]</code></pre>
+								</div>
+							</div>
+							<div class="M-compstringChild">
+								<h4 class="name  name-title" id="compstringChild"><span class="type-signature"></span>compstringChild<span class="signature">(index_or_id_child<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {String|undefined|null}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										<strong>compstringChild</strong> is a Component's method with wich can get all Component child
+										<em>tagstrings</em> or just one of it.
+									</div>
+									<h5>Parameters:</h5>
+									<div class="table-wrap">
+										<table class="params">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Type</th>
+													<th>Attributes</th>
+													<th class="last">Description</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="name"><code>index_or_id_child</code></td>
+													<td class="type">
+														<span class="param-type">String</span>
+														|
+														<span class="param-type">Number</span>
+													</td>
+													<td class="attributes">
+														&lt;optional><br>
+													</td>
+													<td class="description last">The id or index od child Element searched.</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- A string or undefinded if param is wrong or null if Component does not have any child Element.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">String</span>
+											|
+											<span class="param-type">undefined</span>
+											|
+											<span class="param-type">null</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.mycomp = this.Component(`
+Hello
+	World!
+	#greet Hello Rocforjs!`)
+// It works with the child index (first Component's child has index 0):
+this.mycomp.compstringChild(0) // div World!
+// It works with the child id (Component will search on all children Elements and it's child Elements too):
+this.mycomp.compstringChild('greet') // div#greet Hello Rocforjs!
+// Or it will return an Array list with all child Component's tagstrings:
+this.mycomp.compstringChild() // [div World!, div#greet Hello Rocforjs!]</code></pre>
+								</div>
+							</div>
+							<div class="M-delComponent">
+								<h4 class="name  name-title" id="delComponent"><span class="type-signature"></span>delComponent<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										<strong>delComponent</strong> is a Component's method with wich can delete Component's HTMLElement previously
+										rendered in DOM.
+									</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- Component to chain pattern.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Object</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>// First component HTMLElement must been rendered in DOM, then is possible use this method.
+this.mycomp = this.Component('Hello World!')
+this.mycomp.setComponent() // mycomp HTMLElement is setted in body's HTMLElement.
+this.mycomp.delComponent() // mycomp HTMLElement is deleted from body's HTMLElement.</code></pre>
+								</div>
+							</div>
+							<div class="M-getComponent">
+								<h4 class="name  name-title" id="getComponent"><span class="type-signature"></span>getComponent<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										<strong>getComponent</strong> is a Component's method with wich can obtain Component's final HTMLElement.
+									</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- Component's final HTMLElement.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">HTMLElement</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.mycomp = this.Component('Hello World!')
+this.mycomp.getComponent() // &lt;div>Hello World!&lt;/div></code></pre>
+								</div>
+							</div>
+							<div class="M-render">
+								<h4 class="name  name-title" id="render"><span class="type-signature"></span>render<span class="signature">(where<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										<strong>render</strong> is a Component's method with wich can render and set Component's final HTMLElement in
+										DOM.
+									</div>
+									<h5>Parameters:</h5>
+									<div class="table-wrap">
+										<table class="params">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Type</th>
+													<th>Attributes</th>
+													<th>Default</th>
+													<th class="last">Description</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="name"><code>where</code></td>
+													<td class="type">
+														<span class="param-type">String</span>
+														|
+														<span class="param-type">Object</span>
+													</td>
+													<td class="attributes">
+														&lt;optional><br>
+													</td>
+													<td class="default">
+														body|props[before|container|after]
+													</td>
+													<td class="description last">The id of DOM's HTMLElement container of the same DOM's HTMLElement
+														container.</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- Component Object to chain pattern.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Object</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.mycomp = this.Component('Hello World!')
+this.mycomp.render() // &lt;div>Hello World!&lt;/div> now is setted in body's HTMLElement.</code></pre>
+								</div>
+							</div>
+							<div class="M-innerHTML">
+								<h4 class="name  name-title" id="innerHTML"><span class="type-signature"></span>innerHTML<span class="signature">(htmltxt, index_or_id_child<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										<strong>innerHTML</strong> is a special Component's method with wich can set HTML content to main Component's
+										Element or to the selected child Element.
+									</div>
+									<h5>Parameters:</h5>
+									<div class="table-wrap">
+										<table class="params">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Type</th>
+													<th>Attributes</th>
+													<th>Default</th>
+													<th class="last">Description</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="name"><code>htmltxt</code></td>
+													<td class="type">
+														<span class="param-type">String</span>
+													</td>
+													<td class="attributes">
+													</td>
+													<td class="default">
+													</td>
+													<td class="description last">Any string.</td>
+												</tr>
+												<tr>
+													<td class="name"><code>index_or_id_child</code></td>
+													<td class="type">
+														<span class="param-type">String</span>
+													</td>
+													<td class="attributes">
+														&lt;optional><br>
+													</td>
+													<td class="default">
+														component
+													</td>
+													<td class="description last">Id or index of child Element searched.</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										Component - To chain pattern.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Object</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.mycomp = this.Component(`
+Hello
+	World!
+	#greet Hello Rocforjs!`)
+// It works with the child index (first Component's child has index 0):
+this.mycomp.innerHTML('Roccou!', 0) // Now the content of child with index 0 changes to: &lt;div>Roccou!&lt;/div>
+// It works with the child id (Component will search on all children Elements and it's child Elements too):
+// The content of child with id 'greet' will change to: &lt;div id="greet">Hello Roccou!&lt;/div>
+this.mycomp.innerHTML('Hello Roccou!', 'greet')
+// Or it will change all HTML content of main Component Element:
+this.mycomp.innerHTML('Hello Roccou!')
+// Now the content of main Component changes to: &lt;div>Hello Roccou!&lt;/div></code></pre>
+								</div>
+							</div>
+							<div class="M-textContent">
+								<h4 class="name  name-title" id="textContent"><span class="type-signature"></span>textContent<span class="signature">(txt, index_or_id_child<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										<strong>textContent</strong> is a special Component's method with wich can set plain text content to main
+										Component's Element or to the selected child Element.
+									</div>
+									<h5>Parameters:</h5>
+									<div class="table-wrap">
+										<table class="params">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Type</th>
+													<th>Attributes</th>
+													<th>Default</th>
+													<th class="last">Description</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="name"><code>txt</code></td>
+													<td class="type">
+														<span class="param-type">String</span>
+													</td>
+													<td class="attributes">
+													</td>
+													<td class="default">
+													</td>
+													<td class="description last">Any string.</td>
+												</tr>
+												<tr>
+													<td class="name"><code>index_or_id_child</code></td>
+													<td class="type">
+														<span class="param-type">String</span>
+													</td>
+													<td class="attributes">
+														&lt;optional><br>
+													</td>
+													<td class="default">
+														component
+													</td>
+													<td class="description last">Id or index of child Element searched.</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										Component - To chain pattern.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Object</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.mycomp = this.Component(`
+Hello
+	World!
+	#greet Hello Rocforjs!`)
+// It works with the child index (first Component's child has index 0):
+this.mycomp.textContent('Roccou!', 0) // Now the content of child with index 0 changes to: &lt;div>Roccou!&lt;/div>
+// It works with the child id (Component will search on all children Elements and it's child Elements too):
+// The content of child with id 'greet' will change to: &lt;div id="greet">Hello Roccou!&lt;/div>
+this.mycomp.textContent('Hello Roccou!', 'greet')
+// Or it will change all HTML content of main Component Element:
+this.mycomp.textContent('Hello Roccou!')
+// Now the content of main Component changes to: &lt;div>Hello Roccou!&lt;/div></code></pre>
+								</div>
+							</div>
+						</article>
+					</section>
+				</div>
+				<nav class="one  M-one-20  M-fix  center  M-left  M-p-left-1">
+					<h2><a href="index.html">Home</a></h2>
+					<h3>Classes</h3>
+					<ul>
+						<li><a href="R_.html" class="button  button-1  d-block">R</a></li>
+						<li><a href="R_Component.html" class="button  button-1  d-block">R.Component</a></li>
+					</ul>
+					<h3>Component Parts</h3>
+					<ul>
+						<li><a href="#Properties" class="button  button-1  d-block">Properties</a></li>
+						<li><a href="#Methods" class="button  button-1  d-block">Methods</a></li>
+					</ul>
+				</nav>
+				<br class="clear">
+			</div>
+			<footer class="Footer  roc-fluid  p-1  m-top-5  bg-0">
+				<div class="roc  inline  middle  p-3  M-p-0">
+					<div class="one  one-20  left">
+						<p>License: <a href="https://github.com/Roccouu/rocfor/blob/master/LICENSE" title="Rocfor License">MIT</a></p>
+					</div>
+					<div class="one  one-80  right">
+						<p>
+							<span class="d-none  M-d-inline">Documentation generated by </span>
+							<a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+							<span class="d-none  M-d-inline">on Wed May 15 2019 22:23:09 GMT-0400 (-04)</span>
+						</p>
+					</div>
+				</div>
+			</footer>
+		</div>
+		<script>
+			prettyPrint();
+		</script>
+		<script src="scripts/linenumber.js"> </script>
+	</body>
+
+</html>

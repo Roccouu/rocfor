@@ -1,0 +1,3045 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>JSDoc: Namespace: r</title>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+		<title>Rocfor.js Docs</title>
+		<meta name="description" content="Rocfor.js Documentation index">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="robots" content="index, follow">
+		<link rel="shortcut icon" type="image/png" href="../assets/img/favicon.ico">
+		<link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
+		<link rel="shortcut icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+		<link rel="apple-touch-icon" size="" href="../assets/img/apple-touch-icon.png">
+		<link rel="author" type="text/plain" href="../humans.txt">
+		<link rel="sitemap" type="application/xml" title="Sitemap" href="../sitemap.xml">
+
+		<script src="scripts/prettify/prettify.js"> </script>
+		<script src="scripts/prettify/lang-css.js"> </script>
+		<!--[if lt IE 9]>
+				<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<![endif]-->
+		<link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+		<link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+
+		<link rel="stylesheet" href="../assets/css/styles.min.css">
+	</head>
+	<body>
+		<div class="Fullpage Fullpage-fixed-header bgc-1">
+			<div class="Header roc-fluid p-2 m-bottom-3 bg-0 center">
+				<div class="roc">
+					<div class="one">
+						<a href="https://roccouu.github.io/rocfor/">
+							<img height="50px" width="50px" src="../assets/img/rocforjs.svg" alt="">
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="Body  Container  roc  M-inline  M-top  co-1  rel  m-top-6">
+				<div id="main" class="one  M-one-70">
+					<h1 class="page-title">Object: r</h1>
+					<section class="mauto  M-m-right-2">
+						<header>
+							<h2><span class="attribs"><span class="type-signature"></span></span>r<span class="type-signature"></span></h2>
+						</header>
+						<article>
+							<div class="container-overview">
+								<div class="description">
+									<strong>r</strong> is a JS Object with diferent Resources to work with four data types: HTMLElements,
+									Strings, Arrays and Objects.
+								</div>
+							</div>
+
+							<div class="P-test">
+								<h4 class="name" id="test"><span class="type-signature"></span>test<span class="type-signature"> &rarr; {HTMLElement|undefined}</span></h4>
+								<div class="description">
+										test is a property to prove Rocfor is working in the project. It returns a simple string saying: "welcome to Rocforjs!".
+								</div>
+								<h5>Returns:</h5>
+								<div class="param-desc">
+									- String.
+								</div>
+								<h5>Example</h5>
+								<pre class="prettyprint"><code>let x = new R()
+console.log(x.r.test) // "welcome to Rocforjs!"</code></pre>
+							</div>
+
+							<h3 class="subsection-title">Methods</h3>
+
+							<h4 class="Aside  name  name-group  subsection-title" id="DOMmethods">DOM methods:</h4>
+
+							<div class="M-$">
+									<h4 class="name  name-title" id="$"><span class="type-signature"></span>$<span class="signature">(idname)</span><span class="type-signature"> &rarr; {HTMLElement|undefined}</span></h4>
+									<div class="M-content">
+										<div class="description">
+											$ is a shortcut for document.getElementById. You can apply the same treatment with r in R.Component.
+										</div>
+										<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>idname</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">Any string of DOM element id attribute.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<h5>Returns:</h5>
+										<div class="param-desc">
+											- The HTMLElement Object found in DOM or undefined if doesn't.
+										</div>
+										<dl>
+											<dt>
+												Type
+											</dt>
+											<dd>
+												<span class="param-type">HTMLElement</span>
+												|
+												<span class="param-type">undefined</span>
+											</dd>
+										</dl>
+										<h5>Example</h5>
+										<pre class="prettyprint"><code>// Direct assingnment:
+let x = new R()
+let e = x.r.$('some_id_in_DOM_element') // &lt;div id="some_id_in_DOM_element">Hello world!&lt;/div>.
+// In a class:
+class MyClass extends R {
+	constructor (props) {
+		super(props)
+		let e = this.r.$('some_id_in_DOM_element') // &lt;div id="some_id_in_DOM_element">Hello world!&lt;/div>.
+	}
+}
+// In a class that inherits from R.Component:
+class MyClass extends R.Component {
+	constructor (props) {
+		super(props)
+		let e = this.r.$('some_id_in_DOM_element') // &lt;div id="some_id_in_DOM_element">Hello world!&lt;/div>.
+	}
+}</code></pre>
+									</div>
+							</div>
+							<div class="M-searchElement">
+								<h4 class="name  name-title" id="searchElement"><span class="type-signature"></span>searchElement<span class="signature">(element)</span><span class="type-signature"> &rarr; {HTMLElement|false}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Search any HTMLElement by id string and returns it. If it already is an HTMLElement returns it else false
+										(same at $ method).
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>element</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+															|
+															<span class="param-type">HTMLElement</span>
+														</td>
+														<td class="description last">An id string or HTMLElement Object</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- The HTMLElement Object found in DOM or false if doesn't.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">HTMLElement</span>
+											|
+											<span class="param-type">false</span>
+										</dd>
+									</dl>
+								</div>
+							</div>
+							<div class="M-queryCreator">
+								<h4 class="name  name-title" id="queryCreator"><span class="type-signature"></span>queryCreator<span class="signature">(evnt)</span><span class="type-signature"> &rarr; {String}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Creates a query string using all data of the selected Form. It is very util when you want to send querystrings
+										to backend.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>evnt</code></td>
+														<td class="type">
+															<span class="param-type">Event</span>
+														</td>
+														<td class="description last">The submit event of form.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- A query string with pair key=value&...
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">String</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>// myquery will have a string like: key=value&amp;... or '' (Assuming that current code line is into a class):
+let myquery = myForm.addEventListener('submit', e => this.r.queryCreator(e)) // key=value$key1=value1&amp;...</code></pre>
+								</div>
+							</div>
+							<div class="M-changeClass">
+								<h4 class="name  name-title" id="changeClass"><span class="type-signature"></span>changeClass<span class="signature">(elem,
+										oldclass, newclass)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Changes a class specified on a DOM HTMLElement.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>elem</code></td>
+														<td class="type">
+															<span class="param-type">HTMLElement</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">The id of the HTMLElement or the DOM HTMLElement that has the class that will
+															be changed.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>oldclass</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">String with the class to be changed.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>newclass</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">String with the class that will replace the old class.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- Returns r Module to chain pattern.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Object</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>// If an HTMLElement that exists in DOM has an id 'main' and classes: 'one  two  three',
+// will change 'one' class for 'im' (Assuming that current code line is into a class):
+this.r.changeClass('main', 'one', 'im') // now main HTMLElement has classes: 'im  two  three'.</code></pre>
+								</div>
+							</div>
+							<div class="M-changeClasses">
+								<h4 class="name  name-title" id="changeClasses"><span class="type-signature"></span>changeClasses<span class="signature">(elem, oldClasses, newClasses)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Changes all classes specified on a DOM HTMLElement.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>elem</code></td>
+														<td class="type">
+															<span class="param-type">HTMLElement</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">The id of the HTMLElement or the DOM HTMLElement that has the classes that
+															will be changed.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>oldClasses</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+														</td>
+														<td class="description last">Array or String with a list of classes to be changed.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>newClasses</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+														</td>
+														<td class="description last">Array or String with a list of classes that will replace old classes.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- Returns r Module to chain pattern.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Object</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>// If an HTMLElement that exists in DOM has an id 'main' and classes: 'one  two  three',
+// will change 'one' and 'three' classes for 'im' and 'rocr'
+// (Assuming that current code line is into a class):
+// With the array way:
+this.r.changeClasses('main', ['one', 'two'], ['im', 'rocr']) // now main HTMLElement has classes: 'im  two  rocr'.
+// With the string way (You can use commas(,), commas with spaces(, ), dots (.) or spaces to separe each class):
+this.r.changeClasses('main', 'one,two', 'im rocr') // now main HTMLElement has classes: 'im  two  rocr'.
+// With the string and other way:
+this.r.changeClasses('main', 'one.two', 'im,rocr') // now main HTMLElement has classes: 'im  two  rocr'.</code></pre>		
+								</div>
+							</div>
+							<div class="M-toggleClass">
+								<h4 class="name  name-title" id="toggleClass"><span class="type-signature"></span>toggleClass<span class="signature">(elem,
+										tclass)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Toggles a class specified on a DOM HTMLElement.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>elem</code></td>
+														<td class="type">
+															<span class="param-type">HTMLElement</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">The id of the HTMLElement or the DOM HTMLElement that has the class that will
+															be toggled.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>tclass</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">String with the class to be toggled.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- Returns r Module to chain pattern.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Object</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>// If an HTMLElement that exists in DOM and was getted via this.r.$ in a variable myElem and has classes: 'two  three',
+// will toggle 'one' class. 'one' will be inserted if do not exists and deleted if already exists.
+// (Assuming that current code line is into a class):
+this.r.toggleClass(myElem, 'one') // now myElem HTMLElement has classes: 'one  two  three'.</code></pre>			
+								</div>
+							</div>
+							<div class="M-deleteClass">
+								<h4 class="name  name-title" id="deleteClass"><span class="type-signature"></span>deleteClass<span class="signature">(elem,
+										wichclass)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Deletes a class specified on a DOM HTMLElement.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>elem</code></td>
+														<td class="type">
+															<span class="param-type">HTMLElement</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">The id of the HTMLElement or the DOM HTMLElement that has the class that will
+															be deleted.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>wichclass</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">String with the class to be deleted.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- Returns r Module to chain pattern.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Object</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>// If an HTMLElement that exists in DOM and was getted via this.r.$ in a variable myElem and has classes: 'two  three',
+// will delete 'two' class (Assuming that current code line is into a class):
+this.r.deleteClass(myElem, 'two') // now myElem HTMLElement has classes: 'three'.</code></pre>
+								</div>
+							</div>
+							<div class="M-deleteClasses">
+								<h4 class="name  name-title" id="deleteClasses"><span class="type-signature"></span>deleteClasses<span class="signature">(elem, classes)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Deletes all classes specified on a DOM HTMLElement.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>elem</code></td>
+														<td class="type">
+															<span class="param-type">HTMLElement</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">The id of the HTMLElement or the DOM HTMLElement that has the classes that
+															will be deleted.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>classes</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">Array list or String with the classes to be deleted.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- Returns r Module to chain pattern.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Object</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>// If an HTMLElement that exists in DOM and was getted via this.r.$ in a variable myElem and has classes: 'two  three  four',
+// will delete 'two  four' classes (Assuming that current code line is into a class):
+this.r.deleteClasses(myElem, 'two four') // now myElem HTMLElement has class: 'three'.</code></pre>
+								</div>
+							</div>
+							<div class="M-insertClass">
+								<h4 class="name  name-title" id="insertClass"><span class="type-signature"></span>insertClass<span class="signature">(elem, newclass)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Inserts a class specified on a DOM HTMLElement.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>elem</code></td>
+														<td class="type">
+															<span class="param-type">HTMLElement</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">The id of the HTMLElement or the DOM HTMLElement where will the class be
+															inserted.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>newclass</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">String with the class to be inserted.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- Returns r Module to chain pattern.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Object</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>// If an HTMLElement that exists in DOM and was getted via this.r.$ in a variable myElem:
+// will receive a class named 'two' (Assuming that current code line is into a class):
+this.r.insertClass(myElem, 'two') // now myElem HTMLElement has the class: 'two'.</code></pre>
+								</div>
+							</div>
+							<div class="M-insertClasses">
+									<h4 class="name  name-title" id="insertClasses"><span class="type-signature"></span>insertClasses<span class="signature">(elem, classes)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+									<div class="M-content">
+										<div class="description">
+											Inserts all classes specified on a DOM HTMLElement.
+										</div>
+										<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>elem</code></td>
+														<td class="type">
+															<span class="param-type">HTMLElement</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">The id of the HTMLElement or the DOM HTMLElement where will the classes be
+															inserted.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>classes</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">Array list or a String with the classes (separed by commas, dots or spaces)
+															to be inserted.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<h5>Returns:</h5>
+										<div class="param-desc">
+											- Returns r Module to chain pattern.
+										</div>
+										<dl>
+											<dt>
+												Type
+											</dt>
+											<dd>
+												<span class="param-type">Object</span>
+											</dd>
+										</dl>
+										<h5>Example</h5>
+										<pre class="prettyprint"><code>// If an HTMLElement that exists in DOM and was getted via this.r.$ in a variable myElem:
+// will receive the next list of classes: 'two  trhee' (Assuming that current code line is into a class):
+this.r.insertClasses(myElem, 'two, trhee') // now myElem HTMLElement has the classes: 'two, trhee'.</code></pre>
+									</div>
+							</div>
+							<div class="M-hasClass">
+								<h4 class="name  name-title" id="hasClass"><span class="type-signature"></span>hasClass<span class="signature">(elem, wichclass)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Search for a class into HTML element class list
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>elem</code></td>
+														<td class="type">
+															<span class="param-type">HTMLElement</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">The id of the HTMLElement or the DOM HTMLElement where will the class be
+															searched.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>wichclass</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">String with the class that lookin' for.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- True if class exists, false otherwise.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Boolean</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>// If an HTMLElement that exists in DOM and was getted via this.r.$ in a variable myElem that has classes 'two  trhee':
+// The class we want to know if exists is 'two' (Assuming that current code line is into a class):
+this.r.hasClass(myElem, 'two') // true.</code></pre>
+								</div>
+							</div>
+							<div class="M-isElement">
+								<h4 class="name  name-title" id="isElement"><span class="type-signature"></span>isElement<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Evaluates if elem is an HTMLElement.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>elem</code></td>
+														<td class="type">
+															<span class="param-type">HTMLElement</span>
+														</td>
+														<td class="description last">The DOM HTMLElement.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- True if elem is an HTMLElement, false otherwise.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Boolean</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>// If an HTMLElement that exists in DOM is 'alone':
+this.r.isElement(alone) // true.</code></pre>
+								</div>
+							</div>
+							<div class="M-isTextNode">
+								<h4 class="name  name-title" id="isTextNode"><span class="type-signature"></span>isTextNode<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Evaluates if elem is an TextNode type DOM Element.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>elem</code></td>
+														<td class="type">
+															<span class="param-type">HTMLElement</span>
+														</td>
+														<td class="description last">The TextNode or DOM TextNode to be evaluated.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- True if elem is a TextNode, false otherwise.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Boolean</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>// If elem is not a text node:
+this.r.isTextNode(elem) // false.</code></pre>
+								</div>
+							</div>
+							<div class="M-elementByIdExists">
+								<h4 class="name  name-title" id="elementByIdExists"><span class="type-signature"></span>elementByIdExists<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Evaluates if elem is type Element node and if exists in DOM.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>elem</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">The id of the DOM HTMLElement.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- True if elem exists in DOM, false otherwise.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Boolean</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.r.elementByIdExists('alone') // false.</code></pre>
+								</div>
+							</div>
+							<div class="M-elementIndex">
+								<h4 class="name  name-title" id="elementIndex"><span class="type-signature"></span>elementIndex<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Obtains the index of Element into his parent Element.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>elem</code></td>
+														<td class="type">
+															<span class="param-type">HTMLElement</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">The id of the HTMLElement or the DOM HTMLElement.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- The index if Element exists in parentElement, -1 if doesn't exists.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Number</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>// Consider next HTML Element in DOM: &lt;div>&lt;div id="im">&lt;/div>&lt;/div>
+let i = this.r.elementIndex('im') // i = 0.</code></pre>
+								</div>
+							</div>
+							<div class="M-insertAfter">
+								<h4 class="name  name-title" id="insertAfter"><span class="type-signature"></span>insertAfter<span class="signature">(elem, where)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Inserts an HTMLElement after another HTMLElement like Element.insertBefore javaScript method.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>elem</code></td>
+														<td class="type">
+															<span class="param-type">HTMLElement</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">The id of the HTMLElement or the DOM HTMLElement.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>where</code></td>
+														<td class="type">
+															<span class="param-type">HTMLElement</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">The id of the HTMLElement or the DOM HTMLElement where elem will be inserted
+															after.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- r to chain pattern. If elem or where are not of type Elements o does not exists throws an error.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Object</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>// Consider next HTML Element in DOM: &lt;div>&lt;div id="im">&lt;/div>&lt;/div>
+// And a = &lt;p id="rocr">&lt;/p>
+this.r.insertAfter(a, 'im') // &lt;div>&lt;div id="im">&lt;/div>&lt;p id="rocr">&lt;/p>&lt;/div></code></pre>
+								</div>
+							</div>
+							<div class="M-elementEval">
+								<h4 class="name  name-title" id="elementEval"><span class="type-signature"></span>elementEval<span class="signature">(elem)</span><span class="type-signature"> &rarr; {HTMLElement|Boolean}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Evaluates an HTMLElement if elem is String or Object and if exists in DOM.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>elem</code></td>
+														<td class="type">
+															<span class="param-type">HTMLElement</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">The id of the HTMLElement or the DOM HTMLElement.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- The HTMLElement if exists or is an Element or false. If you send a wrong param, will throw an error.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">HTMLElement</span>
+											|
+											<span class="param-type">Boolean</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>// Consider next HTML Element in DOM: &lt;div>&lt;div id="im">&lt;/div>&lt;/div>
+this.r.elementEval('im') // &lt;div id="im">&lt;/div></code></pre>
+								</div>
+							</div>
+							<div class="M-elementInsertChild">
+								<h4 class="name  name-title" id="elementInsertChild"><span class="type-signature"></span>elementInsertChild<span class="signature">(elem, where<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Inserts an HTMLElement into, before or after the HTMLElement specified in DOM.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th>Attributes</th>
+														<th>Default</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>elem</code></td>
+														<td class="type">
+															<span class="param-type">HTMLElement</span>
+															|
+															<span class="param-type">Object</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="attributes">
+														</td>
+														<td class="default">
+														</td>
+														<td class="description last">The id of the HTMLElement or the DOM HTMLElement.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>where</code></td>
+														<td class="type">
+															<span class="param-type">HTMLElement</span>
+															|
+															<span class="param-type">Object</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="attributes">
+															&lt;optional><br>
+														</td>
+														<td class="default">
+															body
+														</td>
+														<td class="description last">The id of the HTMLElement or the DOM HTMLElement where elem will be
+															inserted.<br />
+															This param is special, it can receive diferent type of values:
+															<ol>
+																<li>If has a invalid value: body will receive 'elem'.
+																<li>If it's String: the method will search the HTMLElement in DOM by it's id</li>
+																<li>If it's HTMLElement object: the method will evaluate it's value and then will insert inside 'elem'
+																	HTMLElement.</li>
+																<li>If it's Object: It can have inside one of three possible elements:
+																	<ol>
+																		<li>{'container': id string of HTMLElement or the HTMLElement}: 'elem' will be inserted into
+																			'container'</li>
+																		<li>{'before': id string of HTMLElement or the HTMLElement}: 'elem' will be inserted before
+																			HTMLElement value of 'before'</li>
+																		<li>{'after': id string of HTMLElement or the HTMLElement}: 'elem' will be inserted after
+																			HTMLElement value of 'after'</li>
+																	</ol>
+																</li>
+															</ol>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- r Object to chain pattern. If elem or where are invalid datas, an error will be generated.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Object</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre
+										class="prettyprint"><code>// Consider next HTML Element in DOM: &lt;div>&lt;div id="im">&lt;/div>&lt;/div>
+// And let i = &lt;input type="radio" /> the HTMLElement that must be inserted (it is not a string):
+// With String params:
+this.r.elementInsertChild(i, 'im') // &lt;div>&lt;div id="im">&lt;input type="radio" />&lt;/div>&lt;/div>
+// With HTMLElement Objects params, consider tags are HTMLElement Objects, not strings:
+// let i = &lt;input type="radio" />, myholder = &lt;div>&lt;div id="im">&lt;/div>&lt;/div>
+this.r.elementInsertChild(i, holder) // &lt;div>&lt;div id="im">&lt;input type="radio" />&lt;/div>&lt;/div>
+// With 'where' as an object with 'container' property and this HTML Element exists in DOM: &lt;div>&lt;div id="im">&lt;/div>&lt;/div>:
+// let i = &lt;input type="radio" />
+this.r.elementInsertChild(i, {'container': 'im'}) // &lt;div>&lt;div id="im">&lt;input type="radio" />&lt;/div>&lt;/div>
+// With 'where' as an object with 'before' property
+this.r.elementInsertChild(i, {'before': 'im'}) // &lt;div>&lt;div id="im">&lt;/div>&lt;input type="radio" />&lt;/div>
+// With 'where' as an object with 'after' property
+this.r.elementInsertChild(i, {'after': 'im'}) // &lt;div>&lt;input type="radio" />&lt;div id="im">&lt;/div>&lt;/div></code></pre>
+								</div>
+							</div>
+							<div class="M-elementHasChildById">
+								<h4 class="name  name-title" id="elementHasChildById"><span class="type-signature"></span>elementHasChildById<span class="signature">(parentname, idname)</span><span class="type-signature"> &rarr; {Boolean|undefined}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Searches if an HTMLElement has a child Element that has the id string gived.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>parentname</code></td>
+														<td class="type">
+															<span class="param-type">HTMLElement</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">The id of the HTMLElement or the DOM HTMLElement where will search the id of
+															the child Element.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>idname</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">The id string of the searched Element.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- True if id searched exists, else false. If any param is invalid returns undefined.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Boolean</span>
+											|
+											<span class="param-type">undefined</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>// Consider next HTML Element in DOM: &lt;div id="foo">&lt;div id="bar">&lt;/div>&lt;/div>
+this.r.elementHasChildByID('foo', 'bar') // True.
+this.r.elementHasChildByID('foo', 'im') // False.
+this.r.elementHasChildByID(8) // undefined.</code></pre>
+								</div>
+							</div>
+							<div class="M-sanitizeInput">
+								<h4 class="name  name-title" id="sanitizeInput"><span class="type-signature"></span>sanitizeInput<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Entityes all tag chars occurrence in the value of any input Element type text.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>elem</code></td>
+														<td class="type">
+															<span class="param-type">HTMLElement</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">The id of the HTMLElement or the DOM HTMLElement.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- r Object to chain pattern.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Object</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>// Consider next HTML Element in DOM: &lt;input type="text" id="textinput" value="&lt;em>Hello World!&lt;/em>" />
+this.r.sanitizeInput('textinput') // &amp;lt;em&amp;gt;Hello World!&amp;lt;/em&amp;gt;</code></pre>
+								</div>
+							</div>
+							<div class="M-focusAndClean">
+								<h4 class="name  name-title" id="focusAndClean"><span class="type-signature"></span>focusAndClean<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Sets value to null of any input type text and then focus it.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>elem</code></td>
+														<td class="type">
+															<span class="param-type">HTMLElement</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">The id of the HTMLElement or the DOM HTMLElement.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- r Object to chain pattern.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Object</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>// Consider next HTML Element in DOM: &lt;input type="text" id="textinput" />
+this.r.focusAndClean('textinput') // textinput value will be cleaned en then focused.</code></pre>
+								</div>
+							</div>
+							<h4 class="Aside  name  name-group  subsection-title" id="Stringmethods">String methods:</h4>
+							<div class="M-isString">
+								<h4 class="name  name-title" id="isString"><span class="type-signature"></span>isString<span class="signature">(str)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Evaluates if a str is type of String.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>str</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">A valid String.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- True if str is a String, false otherwise.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Boolean</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.r.isString('text to evaluate') // True.</code></pre>
+								</div>
+							</div>
+							<div class="M-escapeString">
+								<h4 class="name  name-title" id="escapeString"><span class="type-signature"></span>escapeString<span class="signature">(query, vectorstr)</span><span class="type-signature"> &rarr; {String|undefined}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Escapes all occurrences chars in query.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>query</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">A valid String.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>vectorstr</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+														</td>
+														<td class="description last">Array with a list of char strings to be escaped.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- The new scaped String. Undefined if query or vectorstr are invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">String</span>
+											|
+											<span class="param-type">undefined</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.r.escapeString('text to [evaluate]', ['[', ']']) // 'text to \[evaluate\]'.</code></pre>		
+								</div>
+							</div>
+							<div class="M-stripTags">
+								<h4 class="name  name-title" id="stripTags"><span class="type-signature"></span>stripTags<span class="signature">(str)</span><span class="type-signature"> &rarr; {String|undefined}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Strips all tags from given String if contains &lt;, / or &gt; symbols.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>str</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">A valid String.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- The new stripped String or the original string if it do not has tags. Undefined if str is a invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">String</span>
+											|
+											<span class="param-type">undefined</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.r.stripTags('&lt;div id="foo">Im a content&lt;/div>') // Im a content.</code></pre>
+								</div>
+							</div>
+							<div class="M-deleteString">
+								<h4 class="name  name-title" id="deleteString"><span class="type-signature"></span>deleteString<span class="signature">(query, str, g)</span><span class="type-signature"> &rarr; {String}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Deletes a bit string from a long string.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>query</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">A valid String and more long than str.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>str</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">A valid and short String string.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>g</code></td>
+														<td class="type">
+															<span class="param-type">Boolean</span>
+														</td>
+														<td class="description last">False: To say at method if will delete just the first occurence of str in
+															query, True if all occurrences.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- The new String whithout the str occurrences or the original string. Empty string ('') if any data is
+										invalid.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">String</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.r.deleteString('Im a content, a cool content.', 'a') // Im  content, a cool content.</code></pre>
+								</div>
+							</div>
+							<div class="M-reverseString">
+								<h4 class="name  name-title" id="reverseString"><span class="type-signature"></span>reverseString<span class="signature">(str)</span><span class="type-signature"> &rarr; {String}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Reverses any string.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>str</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">A valid String.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- The new reversed String. Empty string ('') if str is invalid.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">String</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.r.reverseString('Content') // tnetnoC</code></pre>
+								</div>
+							</div>
+							<div class="M-emptyString">
+								<h4 class="name  name-title" id="emptyString"><span class="type-signature"></span>emptyString<span class="signature">(str)</span><span class="type-signature"> &rarr; {Boolean|undefined}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Looks if a string has some content.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>str</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">A valid String.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- True if str has not characters. False if it has. Undefined if str is a invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Boolean</span>
+											|
+											<span class="param-type">undefined</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.r.emptyString('     ') // True.</code></pre>
+								</div>
+							</div>
+							<div class="M-lTrim">
+								<h4 class="name  name-title" id="lTrim"><span class="type-signature"></span>lTrim<span class="signature">(str, amount)</span><span class="type-signature"> &rarr; {String}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Deletes all spaces from the left part of a string.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>str</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">A valid String.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>amount</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">A valid integer number to say method how many left spaces want to be removed.
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- The new lTrimmed String. Empty ('') if str is empty or a invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">String</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.r.lTrim("   i've trhee left spaces.", 1) //  i've trhee left spaces.</code></pre>
+								</div>
+							</div>
+							<div class="M-rTrim">
+								<h4 class="name  name-title" id="rTrim"><span class="type-signature"></span>rTrim<span class="signature">(str, amount)</span><span class="type-signature"> &rarr; {String}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Deletes all spaces from the right part of a string.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>str</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">A valid String.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>amount</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">A valid integer number to say method how many right spaces want to be
+															removed.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- The new lTrimmed String. Empty ('') if str is empty or a invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">String</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.r.rTrim("I've trhee right spaces.   ") // I've trhee right spaces.</code></pre>
+								</div>
+							</div>
+							<div class="M-ucWordString">
+								<h4 class="name  name-title" id="ucWordString"><span class="type-signature"></span>ucWordString<span class="signature">(str)</span><span class="type-signature"> &rarr; {String}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Upper cases the first letter of a string.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>str</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">A valid String.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- The new lTrimmed String. Empty ('') if str is empty or a invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">String</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.r.ucWordString("i'm Rocforjs fan.", 1) // I'm Rocforjs fan.</code></pre>
+								</div>
+							</div>
+							<div class="M-countCharString">
+								<h4 class="name  name-title" id="countCharString"><span class="type-signature"></span>countCharString<span class="signature">(chr, str)</span><span class="type-signature"> &rarr; {Number|undefined}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Counts all occurrences of a char in a string.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>chr</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">A valid char String.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>str</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">A valid String.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- The number of appeareances of chr in str. If str is empty 0. If chr or str are invalid data, undefined.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Number</span>
+											|
+											<span class="param-type">undefined</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.r.countCharString('a', "i'm Rocforjs fan.") // 1.</code></pre>
+								</div>
+							</div>
+							<div class="M-sanitizeString">
+								<h4 class="name  name-title" id="sanitizeString"><span class="type-signature"></span>sanitizeString<span class="signature">(str)</span><span class="type-signature"> &rarr; {String|undefined}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Replaces all occurrences of tag entities chars in a string for it's unicode equivalents.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>str</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">A valid String.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- The new str String. If str is invalid data, undefined.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">String</span>
+											|
+											<span class="param-type">undefined</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.r.sanitizeString("&lt;i'm Rocforjs fan.>") // "&amp;lt;i'm Rocforjs fan.&amp;gt;".</code></pre>
+								</div>
+							</div>
+							<div class="M-repeatString">
+								<h4 class="name  name-title" id="repeatString"><span class="type-signature"></span>repeatString<span class="signature">(str, n)</span><span class="type-signature"> &rarr; {String|undefined}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Repeats a char string or any string n times.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>str</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+														</td>
+														<td class="description last">A valid String.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>n</code></td>
+														<td class="type">
+															<span class="param-type">Number</span>
+														</td>
+														<td class="description last">A valid Integer Number.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- The new str String. If str or n are invalid datas, undefined.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">String</span>
+											|
+											<span class="param-type">undefined</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.r.repeatString('Rocforjs', 3) // 'RocforjsRocforjsRocforjs'</code></pre>
+								</div>
+							</div>
+							<h4 class="Aside  name  name-group  subsection-title" id="Arraymethods">Array methods:</h4>
+							<div class="M-isArray">
+								<h4 class="name  name-title" id="isArray"><span class="type-signature"></span>isArray<span class="signature">(vector)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Verifies if an array is really an Array data type.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>vector</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+														</td>
+														<td class="description last">A valid Array.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										- True if vector is an Array.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Boolean</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>this.r.isArray([]) // True.</code></pre>
+								</div>
+							</div>
+							<div class="M-reduce">
+								<h4 class="name  name-title" id="reduce"><span class="type-signature"></span>reduce<span class="signature">(vector, fn, initial, from<span class="signature-attributes">opt</span>, to<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Number|String}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Reduces to a single number all elements from an array. This method is similar at reduce() of ES6.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th>Attributes</th>
+														<th>Default</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>vector</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+														</td>
+														<td class="attributes">
+														</td>
+														<td class="default">
+														</td>
+														<td class="description last">The array to evaluate.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>fn</code></td>
+														<td class="type">
+															<span class="param-type">function</span>
+														</td>
+														<td class="attributes">
+														</td>
+														<td class="default">
+														</td>
+														<td class="description last">A function callback to execute when each array element is evaluated.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>initial</code></td>
+														<td class="type">
+															<span class="param-type">Number</span>
+															|
+															<span class="param-type">String</span>
+														</td>
+														<td class="attributes">
+														</td>
+														<td class="default">
+														</td>
+														<td class="description last">A initial value with the final result will be concatenated.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>from</code></td>
+														<td class="type">
+															<span class="param-type">Number</span>
+														</td>
+														<td class="attributes">
+															&lt;optional><br>
+														</td>
+														<td class="default">
+															0
+														</td>
+														<td class="description last">The index of the array where evaluation starts.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>to</code></td>
+														<td class="type">
+															<span class="param-type">Number</span>
+														</td>
+														<td class="attributes">
+															&lt;optional><br>
+														</td>
+														<td class="default">
+															vector.length
+														</td>
+														<td class="description last">The index of array where evaluation ends.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										A number or string with the accumulated value or undefined if vector or fn are invalid datas.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Number</span>
+											|
+											<span class="param-type">String</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.reduce([1, 2, 3], (acum, elem) => elem + elem, 0) // 6.
+let x = this.r.reduce([1, 2, 3, 4, 5], (acum, elem) => acum + elem, 0, 2) // 9.
+let x = this.r.reduce([1, 2, 3, 4, 5], (acum, elem, i) => acum + elem + i, 10, 1, 2) // 18.
+let x = this.r.reduce([1, 2, 3, 4, 5], (acum, elem, i) => {console.log('Index: ' + i); return acum * elem}, 0, 3) // 20 Index: 1... 
+let x = this.r.reduce([], (acum, elem) => acum * elem, 0, 3) // []
+let x = this.r.reduce({}, (acum, elem) => acum * elem, 0, 3) // undefined </code></pre>
+								</div>
+							</div>
+							<div class="M-map">
+								<h4 class="name  name-title" id="map"><span class="type-signature"></span>map<span class="signature">(vector, fn, from<span class="signature-attributes">opt</span>, to<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Maps each element of array or a string applying the orders gived in a function callback. This method is
+										similar at map() of ES6.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th>Attributes</th>
+														<th>Default</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>vector</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+														</td>
+														<td class="attributes">
+														</td>
+														<td class="default">
+														</td>
+														<td class="description last">The array to evaluate.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>fn</code></td>
+														<td class="type">
+															<span class="param-type">function</span>
+														</td>
+														<td class="attributes">
+														</td>
+														<td class="default">
+														</td>
+														<td class="description last">A function callback to execute when each array element is evaluated.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>from</code></td>
+														<td class="type">
+															<span class="param-type">Number</span>
+														</td>
+														<td class="attributes">
+															&lt;optional><br>
+														</td>
+														<td class="default">
+															0
+														</td>
+														<td class="description last">The index of the array where evaluation starts.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>to</code></td>
+														<td class="type">
+															<span class="param-type">Number</span>
+														</td>
+														<td class="attributes">
+															&lt;optional><br>
+														</td>
+														<td class="default">
+															vector.length
+														</td>
+														<td class="description last">The index of array where evaluation ends.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										A Vector or string with new elements. Undefined if vector or fn are invalid datas.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Array</span>
+											|
+											<span class="param-type">String</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.map([1, 2, 3], (x) => -x) // [-1, -2, -3].
+let x = this.r.map([1, 2, 3, 4, 5], (x) => -x, 1, 3) // [1, -2, -3, -4, 5].
+let x = this.r.map([1, 2, 3, 4, 5], (x) => -x, 3) // [1, 2, 3, -4, -5].
+let x = this.r.map([1, 2, 3, 4, 5], (x, i) => x + i) // [1, 3, 5, 7, 9].
+let x = this.r.map([1, 2, 3, 4, 5], (x, i) => {console.log('Index: ' + i); return i * x}, 0, 3) // Index: 0... [0, 2, 6, 12, 5]
+let x = this.r.map([], (x) => x, 0, 3) // []
+let x = this.r.map({}, (x) => x, 0, 3) // undefined
+let x = this.r.map( 'hello rocjs', x => x.toUpperCase(), 5 ) // hello ROCJS.</code></pre>
+								</div>
+							</div>
+							<div class="M-filter">
+								<h4 class="name  name-title" id="filter"><span class="type-signature"></span>filter<span class="signature">(vector, fn, from<span class="signature-attributes">opt</span>, to<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Filter each element of an array applying the order gived in a function calback. This method is similar at
+										filter() of ES6.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th>Attributes</th>
+														<th>Default</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>vector</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+														</td>
+														<td class="attributes">
+														</td>
+														<td class="default">
+														</td>
+														<td class="description last">The array to evaluate.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>fn</code></td>
+														<td class="type">
+															<span class="param-type">function</span>
+														</td>
+														<td class="attributes">
+														</td>
+														<td class="default">
+														</td>
+														<td class="description last">A function callback to execute when each array element is evaluated.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>from</code></td>
+														<td class="type">
+															<span class="param-type">Number</span>
+														</td>
+														<td class="attributes">
+															&lt;optional><br>
+														</td>
+														<td class="default">
+															0
+														</td>
+														<td class="description last">The index of the array where evaluation starts.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>to</code></td>
+														<td class="type">
+															<span class="param-type">Number</span>
+														</td>
+														<td class="attributes">
+															&lt;optional><br>
+														</td>
+														<td class="default">
+															vector.length
+														</td>
+														<td class="description last">The index of array where evaluation ends.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										A Vector or string with new elements. Undefined if vector or fn are invalid datas.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Array</span>
+											|
+											<span class="param-type">String</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.filter([1, 0, 2, 3], (x) => x) // [1, 2, 3].
+let x = this.r.filter([1, 2, 3, 4, 5], (x) => x > 3) // [4, 5].
+let x = this.r.filter([1, 2, 3, 4, 5], (x) => x % 2 === 0) // [2, 4].
+let x = this.r.filter([1, 2, 3, 3, 5], (x, i) => x === i) // [3].
+let x = this.r.filter( 'hello rocjs', x => x === 'o' ) // hell rcjs.</code></pre>
+								</div>
+							</div>
+							<div class="M-unique">
+								<h4 class="name  name-title" id="unique"><span class="type-signature"></span>unique<span class="signature">(vector)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Deletes all repeated elements of an array.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>vector</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+														</td>
+														<td class="description last">The array to evaluate.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										A Vector or string with unique elements. Undefined if vector is a invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Array</span>
+											|
+											<span class="param-type">String</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.unique([1, 2, 2, 3]) // [1, 2, 3].
+let x = this.r.unique('Hello Rocforjs') // "Hel Rocforjs".</code></pre>
+								</div>
+							</div>
+							<div class="M-repeated">
+								<h4 class="name  name-title" id="repeated"><span class="type-signature"></span>repeated<span class="signature">(vector)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Deletes all unique elements of an array.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>vector</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+														</td>
+														<td class="description last">The array to evaluate.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										A Vector or string with unique elements. Undefined if vector is a invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Array</span>
+											|
+											<span class="param-type">String</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.repeated([1, 2, 2, 3]) // [2].
+let x = this.r.repeated('hello rocjs') // "lo".</code></pre>
+								</div>
+							</div>
+							<div class="M-valueExists">
+								<h4 class="name  name-title" id="valueExists"><span class="type-signature"></span>valueExists<span class="signature">(vector, value)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Checks if the element gived exists in array.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>vector</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+														</td>
+														<td class="description last">The array to evaluate.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>value</code></td>
+														<td class="type">
+															<span class="param-type">*</span>
+														</td>
+														<td class="description last">Value to search.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										A Vector or string with unique elements. -1 if vector is a invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Boolean</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.valueExists([1, 2, 2, 3], 3) // True.
+let x = this.r.valueExists('hello rocjs', 'a') // False.</code></pre>
+								</div>
+							</div>
+							<div class="M-valueExistsPos">
+								<h4 class="name  name-title" id="valueExistsPos"><span class="type-signature"></span>valueExistsPos<span class="signature">(vector, value)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Checks for the position of the first occurrence of an element gived if it exists in array.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>vector</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+														</td>
+														<td class="description last">The array to evaluate.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>value</code></td>
+														<td class="type">
+															<span class="param-type">*</span>
+														</td>
+														<td class="description last">Value to search.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										The index of searched element. -1 if vector is a invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Number</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.valueExistsPos([1, 2, 2, 3], 2) // 1.
+let x = this.r.valueExistsPos('hello rocjs', 'a') // -1.</code></pre>
+								</div>
+							</div>
+							<div class="M-cleanArray">
+								<h4 class="name  name-title" id="cleanArray"><span class="type-signature"></span>cleanArray<span class="signature">(vector)</span><span class="type-signature"> &rarr; {Array|undefined}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Deletes all empty (empty strings or undefined elements) elements from the Array.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>vector</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+														</td>
+														<td class="description last">The array to evaluate.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										The cleanned Array. Undefined if vector is a invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Array</span>
+											|
+											<span class="param-type">undefined</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.cleanArray([0, 2, undefined, 3, '']) // [0, 2, 3].</code></pre>
+								</div>
+							</div>
+							<div class="M-maxValueArray">
+								<h4 class="name  name-title" id="maxValueArray"><span class="type-signature"></span>maxValueArray<span class="signature">(vector)</span><span class="type-signature"> &rarr; {*}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Searches for the max value of a numeric elements of an array.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>vector</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+														</td>
+														<td class="description last">The array to evaluate.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										The value that JavaScript considered with maximous value. Undefined if vector is a invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">*</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.maxValueArray([0, 2, undefined, 3, '']) // 3.</code></pre>
+								</div>
+							</div>
+							<div class="M-minValueArray">
+								<h4 class="name  name-title" id="minValueArray"><span class="type-signature"></span>minValueArray<span class="signature">(vector)</span><span class="type-signature"> &rarr; {*}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Searches for the min value of a numeric elements of an array.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>vector</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+														</td>
+														<td class="description last">The array to evaluate.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										The value that JavaScript considered with minimous value. Undefined if vector is a invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">*</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.minValueArray([0, 2, undefined, 3, '']) // ''.</code></pre>
+								</div>
+							</div>
+							<div class="M-difArrays">
+								<h4 class="name  name-title" id="difArrays"><span class="type-signature"></span>difArrays<span class="signature">(vector1, vector2)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Obtains the diference between two arrays.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>vector1</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+														</td>
+														<td class="description last">The array to evaluate.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>vector2</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+														</td>
+														<td class="description last">The array to evaluate.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										A new array with elements that doesn't exists in vector1 and viceversa. Undefined if vectors are invalid
+										datas.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Array</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.difArrays([0, 1, 2, 3], [1, 2, 3, 4]) // [0, 4].</code></pre>
+								</div>
+							</div>
+							<div class="M-arrayToEmptyObject">
+								<h4 class="name  name-title" id="arrayToEmptyObject"><span class="type-signature"></span>arrayToEmptyObject<span class="signature">(vector)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Obtains a object with all elements of an Array as it's keys and values with undefined data.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>vector</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+														</td>
+														<td class="description last">The array to evaluate.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										A new object. Undefined if vector is a invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Object</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.arrayToEmptyObject([0, 1, 2, 3]) // {'0': undefined, '1': undefined, '2': undefined, '3': undefined}.</code></pre>
+								</div>
+							</div>
+							<div class="M-pushArrayInArray">
+								<h4 class="name  name-title" id="pushArrayInArray"><span class="type-signature"></span>pushArrayInArray<span class="signature">(vectorA, vectorB, pos)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Inserts any Array in the selected position of other Array.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>vectorA</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+														</td>
+														<td class="description last">The array to be inserted.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>vectorB</code></td>
+														<td class="type">
+															<span class="param-type">Array</span>
+														</td>
+														<td class="description last">The array that will holds vectorA.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>pos</code></td>
+														<td class="type">
+															<span class="param-type">Number</span>
+														</td>
+														<td class="description last">The index where vectorA will be inserted.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										The new concatenated Array.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Array</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.pushArrayInArray([0, 1], [2, 3], 1) // [0, 2, 3, 1].</code></pre>
+								</div>
+							</div>
+							<h4 class="Aside  name  name-group  subsection-title" id="Objectmethods">Object methods:</h4>
+							<div class="M-isObject">
+								<h4 class="name  name-title" id="isObject"><span class="type-signature"></span>isObject<span class="signature">(obj)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Verifies if data is of type JavaScript Object.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>obj</code></td>
+														<td class="type">
+															<span class="param-type">Object</span>
+														</td>
+														<td class="description last">The Object to be evaluated.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										True if obj is an JavaSctript Object.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Boolean</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.isObject([0, 1]) // False.</code></pre>
+								</div>
+							</div>
+							<div class="M-objectHasObjects">
+								<h4 class="name  name-title" id="objectHasObjects"><span class="type-signature"></span>objectHasObjects<span class="signature">(obj)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Checks if an object has child Object elements inside.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>obj</code></td>
+														<td class="type">
+															<span class="param-type">Object</span>
+														</td>
+														<td class="description last">The Object to be evaluated.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										True if obj has child Object elements.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Boolean</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.objectHasObjects({a: {}, b: 1}) // True.</code></pre>
+								</div>
+							</div>
+							<div class="M-objectLength">
+								<h4 class="name  name-title" id="objectLength"><span class="type-signature"></span>objectLength<span class="signature">(obj)</span><span class="type-signature"> &rarr; {Number|undefined}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										As an Array lenght property, in this case for Objects.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>obj</code></td>
+														<td class="type">
+															<span class="param-type">Object</span>
+														</td>
+														<td class="description last">The Object to be evaluated.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										The lenght of the Object. Undefined if obj is a invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Number</span>
+											|
+											<span class="param-type">undefined</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.objectLength({a: 1, b: 1}) // 2.</code></pre>
+								</div>
+							</div>
+							<div class="M-isEmptyObject">
+								<h4 class="name  name-title" id="isEmptyObject"><span class="type-signature"></span>isEmptyObject<span class="signature">(obj)</span><span class="type-signature"> &rarr; {Boolean|undefined}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Verifies if obj object is empty.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>obj</code></td>
+														<td class="type">
+															<span class="param-type">Object</span>
+														</td>
+														<td class="description last">The Object to be evaluated.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										True if obj has elements, False if doesn't. Undefined if obj is a invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Boolean</span>
+											|
+											<span class="param-type">undefined</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.isEmptyObject({a: 1, b: 1}) // False.</code></pre>
+								</div>
+							</div>
+							<div class="M-objectToArray">
+								<h4 class="name  name-title" id="objectToArray"><span class="type-signature"></span>objectToArray<span class="signature">(obj)</span><span class="type-signature"> &rarr; {Array|undefined}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Converts an object to array. Just for objects with values have string or number data types. Not for objects of
+										objects.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>obj</code></td>
+														<td class="type">
+															<span class="param-type">Object</span>
+														</td>
+														<td class="description last">The Object to be evaluated.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										Array with elements key-value. Undefined if obj is a invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Array</span>
+											|
+											<span class="param-type">undefined</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.objectToArray({a: 1, b: 1}) // ['a-1', 'b-1'].</code></pre>
+								</div>
+							</div>
+							<div class="M-objectHasValue">
+								<h4 class="name  name-title" id="objectHasValue"><span class="type-signature"></span>objectHasValue<span class="signature">(val, obj)</span><span class="type-signature"> &rarr; {Boolean|undefined}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Search for a value in some element into the object gived.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>val</code></td>
+														<td class="type">
+															<span class="param-type">*</span>
+														</td>
+														<td class="description last">The searched value.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>obj</code></td>
+														<td class="type">
+															<span class="param-type">Object</span>
+														</td>
+														<td class="description last">The Object to be evaluated.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										True if val exists in obj, else, false. -1 if obj is a invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Boolean</span>
+											|
+											<span class="param-type">undefined</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.objectHasValue(1, {a: 1, b: 2}) // True.</code></pre>
+								</div>
+							</div>
+							<div class="M-objectHasKey">
+								<h4 class="name  name-title" id="objectHasKey"><span class="type-signature"></span>objectHasKey<span class="signature">(key, obj)</span><span class="type-signature"> &rarr; {Boolean|undefined}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Search for a key into the object gived.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>key</code></td>
+														<td class="type">
+															<span class="param-type">*</span>
+														</td>
+														<td class="description last">The searched key.</td>
+													</tr>
+													<tr>
+														<td class="name"><code>obj</code></td>
+														<td class="type">
+															<span class="param-type">Object</span>
+														</td>
+														<td class="description last">The Object to be evaluated.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										True if key exists in obj, else, false. -1 if obj is a invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Boolean</span>
+											|
+											<span class="param-type">undefined</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.objectHasKey('a', {a: 1, b: 2}) // True.</code></pre>
+								</div>
+							</div>
+							<div class="M-objectValuesToKeys">
+								<h4 class="name  name-title" id="objectValuesToKeys"><span class="type-signature"></span>objectValuesToKeys<span class="signature">(obj)</span><span class="type-signature"> &rarr; {Object|undefined}</span></h4>
+								<div class="M-content">
+									<div class="description">
+										Converts object values on object keys. Recommended: Use this method just with objects that has string values.
+									</div>
+									<h5>Parameters:</h5>
+										<div class="table-wrap">
+											<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>obj</code></td>
+														<td class="type">
+															<span class="param-type">Object</span>
+														</td>
+														<td class="description last">The Object to be evaluated.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									<h5>Returns:</h5>
+									<div class="param-desc">
+										The new object with values changed for it's keys. Undefined if obj is a invalid data.
+									</div>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<span class="param-type">Object</span>
+											|
+											<span class="param-type">undefined</span>
+										</dd>
+									</dl>
+									<h5>Example</h5>
+									<pre class="prettyprint"><code>let x = this.r.objectValuesToKeys({a: 1, b: 2}) // {'1': 'a', '2': 'b'}.</code></pre>
+								</div>
+							</div>
+						</article>
+					</section>
+				</div>
+
+				<nav class="one  M-one-20  M-fix  center  M-left  M-p-left-1">
+					<h2><a href="index.html">Home</a></h2>
+					<h3>Classes</h3>
+					<ul>
+						<li><a href="R_.html" class="button  button-1  d-block">R</a></li>
+						<li><a href="R_Component.html" class="button  button-1  d-block">R.Component</a></li>
+					</ul>
+					<h3>Group Methods</h3>
+					<ul>
+						<li><a href="#DOMmethods" class="button  button-1  d-block">DOM Methods</a></li>
+						<li><a href="#Stringmethods" class="button  button-1  d-block">String Methods</a></li>
+						<li><a href="#Arraymethods" class="button  button-1  d-block">Array Methods</a></li>
+						<li><a href="#Objectmethods" class="button  button-1  d-block">Object Methods</a></li>
+					</ul>
+				</nav>
+
+				<br class="clear">
+			</div>
+			<footer class="Footer  roc-fluid  p-1  m-top-5  bg-0">
+				<div class="roc  inline  middle  p-3  M-p-0">
+					<div class="one  one-20  left">
+						<p>License: <a href="https://github.com/Roccouu/rocfor/blob/master/LICENSE" title="Rocfor License">MIT</a></p>
+					</div>
+					<div class="one  one-80  right">
+						<p>
+							<span class="d-none  M-d-inline">Documentation generated by </span>
+							<a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+							<span class="d-none  M-d-inline">on Wed May 15 2019 22:23:09 GMT-0400 (-04)</span>
+						</p>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<script>
+			prettyPrint();
+		</script>
+		<script src="scripts/linenumber.js"> </script>
+	</body>
+
+</html>

@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>JSDoc: Object: Tag</title>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+		<title>Rocfor.js Docs</title>
+		<meta name="description" content="Rocfor.js Documentation index">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="robots" content="index, follow">
+		<link rel="shortcut icon" type="image/png" href="../assets/img/favicon.ico">
+		<link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
+		<link rel="shortcut icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+		<link rel="apple-touch-icon" size="" href="../assets/img/apple-touch-icon.png">
+		<link rel="author" type="text/plain" href="../humans.txt">
+		<link rel="sitemap" type="application/xml" title="Sitemap" href="../sitemap.xml">
+
+		<script src="scripts/prettify/prettify.js"> </script>
+		<script src="scripts/prettify/lang-css.js"> </script>
+		<!--[if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+		<link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+
+		<link rel="stylesheet" href="../assets/css/styles.min.css">
+	</head>
+
+	<body>
+		<div class="Fullpage Fullpage-fixed-header bgc-1">
+			<div class="Header roc-fluid p-2 m-bottom-3 bg-0 center">
+				<div class="roc">
+					<div class="one">
+						<a href="https://roccouu.github.io/rocfor/">
+							<img height="50px" width="50px" src="../assets/img/rocforjs.svg" alt="">
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="Body Container roc M-inline M-top  co-1  rel  m-top-6">
+				<div id="main" class="one  M-one-70">
+					<h1 class="page-title">Object: Tag</h1>
+					<section class="mauto  M-m-right-2">
+						<header><h2>Tag</h2></header>
+						<article>
+							<div class="container-overview">
+								<div class="description">
+									<p>
+										<strong>Tag</strong> is a method or Rocforjs that allows creation of Single Virtual
+										HTMLElements Objects.<br /><strong>Tag</strong> is the <strong>core</strong> of Rocforjs, and The Library was inspired in Tag.<br />Tag returns a instance of Tag class when a new Tag is created. Tag requieres four basic parameters: <strong>tagString</strong> a special Rocforjs's type string with wich is possible build HTMLElements, <strong>fn</strong> is a param that allows bind any callback at tagString's events, <strong>scope</strong> to say at Tag that is working in a specific JS class, <strong>rvars</strong> to work with Rocforjs variables inside tagStrings, and alternatively <strong>props</strong> to send some properties to Tag when a new class
+										is created.<br /><br /><strong>About fn and scope parameters:</strong> What if an HTMLElement must to have an event, or more than one event?. How it is possible that a tagString can hold events to create a new HTMLElement with events associated?
+										<br />In this land enters the 'fn' Tag parameter.
+										<br />So, previously, to put events in a tagString, exists some ways that resumes next table:
+									</p>
+											<div class="table-wrap">
+												<table>
+													<thead>
+														<th>EVENT TYPE DEFINITION</th>
+														<th>EXAMPLE EVENT IN <em>tagString</em></th>
+														<th><em>fn</em> USE MODE</th>
+														<th><em>scope</em> USE MODE</th>
+														<th>DESCRIPTION</th>
+													</thead>
+													<TBody>
+														<tr>
+															<td colspan="5" alignment="center">INLINE FUNCTIONS:</td>
+														</tr>
+														<tr>
+															<td>As attribute</td>
+															<td>'button(click="function(){alert(\'Im a function as attribute\');}) Some content.'</td>
+															<td>Not required.</td>
+															<td>Not required.</td>
+															<td>(NOT RECOMENDED) Function goes as a naturally inline event as in normally HTML tag. it will be
+																avaluated and assigned at the event.</td>
+														</tr>
+														<tr>
+															<td colspan="5" alignment="center">GLOBALS, LOCALS, CALLBACKS, NAMED, & ANONYMOUS:</td>
+														</tr>
+														<tr>
+															<td>As global</td>
+															<td>'button(click="global_fn") Some content.'</td>
+															<td>Not required.</td>
+															<td>Not required.</td>
+															<td>Tag evals <em>'global_fn'</em> searching from the inmediately superior scope through window main
+																scope.</td>
+														</tr>
+														<tr>
+															<td>As global using fn param</td>
+															<td>'button(click="global_fn") Some content.'</td>
+															<td>global_fn</td>
+															<td>Not required.</td>
+															<td>Tag understand that <em>'global_fn'</em> is a function.</td>
+														</tr>
+														<tr>
+															<td>As global with keyword 'cb' and using fn param</td>
+															<td>'button(click="cb") Some content.'</td>
+															<td>global_fn</td>
+															<td>Not required.</td>
+															<td>Tag understand that <em>'cb'</em> references a local or global callback, so, to Tag
+																<em>'global_fn'</em> is a function.</td>
+														</tr>
+														<tr>
+															<td>As local</td>
+															<td>'button(click="local_fn") Some content.'</td>
+															<td>local_fn</td>
+															<td>Not required.</td>
+															<td>Tag understand that <em>'local_fn'</em> references a local function.</td>
+														</tr>
+														<tr>
+															<td>As local with 'cb' keyword</td>
+															<td>'button(click="cb") Some content.'</td>
+															<td>local_fn</td>
+															<td>Not required.</td>
+															<td>Tag understand <em>'cb'</em> references a valid local function <em>'local_fn'</em>.</td>
+														</tr>
+														<tr>
+															<td>fn param as callback referenced by 'cb' keyword</td>
+															<td>'button(click="cb") Some content.'</td>
+															<td>function(){alert('something');}</td>
+															<td>Not required.</td>
+															<td>Tag understand <em>'cb'</em> references a valid callback.</td>
+														</tr>
+														<tr>
+															<td colspan="5" alignment="center">GLOBALS, LOCALS, CALLBACKS, NAMED, & ANONYMOUS USING <em>'fn'</em>
+																PARAM AS JS OBJECT:</td>
+														</tr>
+														<tr>
+															<td>In IIFE local</td>
+															<td>'button(click="local_fn") Some content.'</td>
+															<td>{'local_fn': local_fn}</td>
+															<td>Not required.</td>
+															<td>Reference <em>'local_fn'</em> in <em>'fn'</em> param and function's name in tagString must
+																coincide.</td>
+														</tr>
+														<tr>
+															<td>To refer a callback</td>
+															<td>'button(click="test") Some content.'</td>
+															<td>{'test':() => alert('Im a callback!')}</td>
+															<td>Not required.</td>
+															<td>Note that always reference in tagString coincide with key name in JS Object.</td>
+														</tr>
+														<tr>
+															<td colspan="5" alignment="center">JS CLASS METHODS:</td>
+														</tr>
+														<tr>
+															<td>Using <em>'ownmethod'</em> keyword</td>
+															<td>'button(click="myMethod") Some content.'</td>
+															<td>this.myMethod</td>
+															<td>Not required.</td>
+															<td>This is a direct reference to own current class method.</td>
+														</tr>
+														<tr>
+															<td>Using <em>'scope'</em> Tag param and referencing the method's name in tagString</td>
+															<td>'button(click="myMethod") Some content.'</td>
+															<td>Not required.</td>
+															<td>this</td>
+															<td>JS keyword this, references to current scope, so, in current class, this references it's scope,
+																then, if current class has <em>'myMethod'</em> accept it as a valid function.</td>
+														</tr>
+														<tr>
+															<td>Using just <em>'fn'</em> param as a pseudo scope</td>
+															<td>'button(click="myMethod") Some content.'</td>
+															<td>this</td>
+															<td>Not required.</td>
+															<td>In this case, Tag evals <em>'fn'</em> param, so, as this references at current class, to Tag this
+																is an object that holds methods and if holds <em>'myMethod'</em> and if it is a valid function,
+																then, it is accepted.</td>
+														</tr>
+														<tr>
+															<td>Using <em>'fn'</em> param as JS Object and <em>'scope'</em> param too</td>
+															<td>'button(click="myMethod") Some content.'</td>
+															<td>{'myMethod': myMethod}</td>
+															<td>this</td>
+															<td>Reference <em>'myMethod'</em> in both cases are equal and the JS Object value must be a valid
+																current class method, then, as <em>'scope'</em> param is sended, Tag assumes that the function
+																reference is a valid current class method.</td>
+														</tr>
+													</TBody>
+												</table>
+											</div>
+									<p>
+										All invalid or reppeated event writed in tagString will be rejected, so, in final <em>'tagstring'</em> it's
+										wrong events are discarted as in entirely final HTMLElement.
+										<br />Now, tagString holds its events and Tag will render this into a new HTMLElement, there is a particular
+										own characteristic of Rocforjs: The final HTMLElement will have its events by the association of the
+										callback and the event throwgh an 'eventListener', so, it will works in a "hide" ambient and the event and
+										it's callback never will be showed in the final HTMLElement (it is easy to recognize, just see in DOM the
+										HTMLElement structure, it could have it's attributes like id, class, title, etc. but no one event as onclick
+										or onmousemove, etc). This is the principle purposed by Rocforjs: "HTML codes and JS codes never have been
+										mixed".<br />To know what event has the HTMLElemnt Tag has a property called <em>'events'</em>; if the
+										HTMLElement has not events, events Object will be null. If the HTMLElement created has inline child
+										elements, each child resides in property type Array called <em>'childtags'</em> and each child holds its own
+										<em>'events'</em> JS Object. (Note: When use Tag, always, just one main HTMLElement will be created, with or
+										without child HTMLElements).
+										<br />As the JS method 'addEventListener' assigns a functionality at determined event, JS has a
+										'removeEventListener' method to delete the indicated event, so, the event gived to the HTMLElement with the
+										tagString can always be deleted ussing 'removeEventListener' method, but, the resident event in 'events' JS
+										Object will exists yet. In fact, this data is only for information it do not has any functionality
+										predeterminated by Tag or Rocforjs because the event is already associated at final HTMLElement, but if once
+										the event is removed from it, but if is necessary, it is possible to reassign this functionality applying
+										again an 'addEventListener' to the HTMLElement and using the 'events' JS Object that holds its calback
+										function, but this must been realized manually.
+										<br /><strong>About rvars:</strong> What if in the moment of setting a tagString exists the need to send a
+										variable?. After all, a tagString is just a simple and common string, so, how is possible to send variables
+										into a string?.
+										<br />With ES6 and it's powerful tools this task is easy: Just use Template Strings. But if this solution is
+										insufficient...
+										<br />Here enters the concept of <strong>rvars</strong>. This keyword is a achronym of
+										<strong>R</strong>ocforjs <strong>V</strong>ariables.<br />An rvar is a variable with own characteristic
+										inserted into a string and could have a global or a particular reference. References are the way of how the
+										rvar in a string can be identified as a variable to be evaluated as it. Then, a global reference is a rvar
+										inserted into a string and can be evaluated directly by algorithm that searches its value against all
+										superior scopes of the current scope. A particular reference is a kind of reference that uses the parameter
+										'rvars' of Tag and was thinked to variables for current scope, this parameter can takes one of two methods:
+										first, just a direct reference to only one variable; second: a multiple reference to many variables in
+										current or superiors scopes. Next Table resume it:
+									</p>
+											<div class="table-wrap">
+												<table>
+													<thead>
+														<th>rvars Syntax Types</th>
+														<th>For global scopes</th>
+														<th>For local scopes</th>
+														<th>Example</th>
+														<th>Description</th>
+													</thead>
+													<tbody>
+														<tr>
+															<td>$rvar</td>
+															<td>Yes</td>
+															<td>No</td>
+															<td>let tag = this.Tag("p#my-p Testing a $x")</td>
+															<td>(NOT RECOMENDED) $x references a global variable or a variable in superior scope, it's name is 'x'
+																and hold some string value as: "Rocforjs rvars!". Then the tagString resultant wil be: "p#my-p
+																Testing a Rocforjs rvars!". This kind of rvar do not need to be referenced in <em>rvars</em> param.
+															</td>
+														</tr>
+														<tr>
+															<td>$$rvar</td>
+															<td>Yes</td>
+															<td>Yes</td>
+															<td>let tag = this.Tag("p#my-p Testing a $$y", {'y': 'Rocforjs rvars!'})</td>
+															<td>This kind of rvar was thinked to references particulary local variables on current scope, but it
+																works for superior scopes and global variables too (For this task value 'Rocforjs rvars!' in {'y':
+																'Rocforjs rvars!'} would been changed by the variable reference, example: {'y': x}, in this case key
+																'y' references at variable 'x' of first kind of rvars). The requirement is that rvars param must to
+																be inserted into a JS Object. This allows the possibility to use many rvars in tagString.</td>
+														</tr>
+														<tr>
+															<td>$(rvar)</td>
+															<td>No</td>
+															<td>No</td>
+															<td>let tag = this.Tag("p#my-p Testing a $(1 + 2)")</td>
+															<td>(NOT RECOMENDED) This kind of rvars is just to make mathematical operations. Any other value
+																passed will generate error that console will log.</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+									<p>
+										Rocforjs has a internal algorithm that resides in a JS Object called _Vars. This object allows the evaluation of variables that resides in strings; so, the Rocfor.js Modules that has this functionality are: <strong>Mdown, Tag, Block</strong> and <strong>Component</strong>.
+									</p>
+									<h3>Example</h3>
+									<pre class="prettyprint"><code>// There is two ways to declare a new instance of Tag
+// (it is unnecessary the use of 'new' JS reserved keyword because Tag already returns a new Object),
+// 1. With a direct assignment:
+1. class MyTag extends R {
+2. 	constructor (props) {
+3. 		super(props)
+4. 		this.tag = this.Tag(`Hello World!`) // Here Tag wil process diractly the tagString 'Hello World!'.
+5. 	}
+6. }
+// Assuming that DOM has an HTMLElement with the id 'test':
+let mytag = new MyTag('test') // Here, send a string in props. This param can hold any value.
+console.log(mytag.tag) // Now, variable mytag (a new object MyTag class) has a property tag, it is a Tag Object.
+// Console will log:
+Tag {tagstrings: {…}, tag: div, classlist: Array(0), idlist: null, idDOM: null, …}
+childtags: null
+classlist: null
+events: null
+idDOM: null
+idlist: null
+tag: div
+tagstrings: {tagstring: "div Hello", mytagString: "Hello"}
+__proto__:
+	delTag: ƒ ()
+	getTag: ƒ ()
+	setTag: ƒ (where)
+	tagChild: ƒ (index_or_id_child)
+	tagstringChild: ƒ (index_or_id_child)
+	__proto__: Object
+// So, in this documentation will see each property and method returned from Tag.
+// 2. With a indirect assignment:
+1. class MyTag extends R {
+2. 	constructor (props) {
+3. 		super(props)
+4. 		this.tag = this.Tag() // Here doesn't exists any tagString, neigther any param.
+5. 	}
+6. 	buildTag () {
+7. 		this.tag = this.tag.createTag('Hello World!')
+8. 	}
+9. }
+// In this situation, in line 4. property this.tag holds a 'constructor' method of Tag called createTag:
+let mytag = new MyTag('test') // Here, send a string in props. This param can hold any value.
+console.log(mytag.tag)
+{}
+__proto__:
+createTag: ƒ (tagString, fn, scope, rvars, props)
+__proto__: Object
+// This method waits for the same params that Tag, but, needs 'props' too, then,
+// allows the creation of many instances of Tag around the whole class MyTag, so, this.tag
+// can create a new virtual HTMLElment in buildTag MyTag method, or in the method you decide.
+// So, this.tag, once buildTag method is executed will return a Tag Object as the Object logged in the first case.
+
+// As you can see, all Tag properties and methods are easy to understand and use too; tagStrings are easy to understand and write,
+// then, let start to use Rocforjs in your Projects!</code></pre>
+									<h2 id="Properties" class="Aside  name-group">Properties</h2>
+									<div class="M-classlist">
+										<h4 class="name  name-title" id="classlist"><span class="type-signature"></span>classlist<span class="type-signature"></span></h4>
+										<div class="M-content">
+											<div class="description">
+												<strong>classlist</strong> property is an Array that holds a list of all classes of HTMLElement created by
+												"Tag" included it's child Elements and Markdown content. This property was thonked on the necessity of know
+												which classes alredy have the current element and all its children; this serves when uses a tool that helps to
+												select just all classes used in current project and deletes all that don't be used.
+											</div>
+											<h5 class="subsection-title">Properties:</h5>
+											<div class="table-wrap">
+												<table class="props">
+													<thead>
+														<tr>
+															<th>Name</th>
+															<th>Type</th>
+															<th class="last">Description</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td class="name"><code>classlist</code></td>
+															<td class="type">
+																<span class="param-type">Array</span>
+																|
+																<span class="param-type">null</span>
+															</td>
+															<td class="description last">All Tag HTMLElement classes, included Tag's child HTMLElements.</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="M-events">
+										<h4 class="name  name-title" id="events"><span class="type-signature"></span>events<span class="type-signature"></span></h4>
+										<div class="M-content">
+											<div class="description">
+												<strong>events</strong> property is a JS Object and holds all events of the final HTMLElement. it is null if
+												do not have events.
+											</div>
+											<h5 class="subsection-title">Properties:</h5>
+											<div class="table-wrap">
+												<table class="props">
+													<thead>
+														<tr>
+															<th>Name</th>
+															<th>Type</th>
+															<th class="last">Description</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td class="name"><code>events</code></td>
+															<td class="type">
+																<span class="param-type">Object</span>
+																|
+																<span class="param-type">null</span>
+															</td>
+															<td class="description last">All Tag events list.</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="M-iddom">
+										<h4 class="name  name-title" id="idDOM"><span class="type-signature"></span>idDOM<span class="type-signature"></span></h4>
+										<div class="M-content">
+											<div class="description">
+												<strong>idDOM</strong> property is an Array that holds a coincident list of the HTMLELements id's of DOM and
+												Tag's created HTMLElement and it's child Elements. If this property comes to have any id inside the Array, Tag
+												will log a warn on console warning that one or more id's already exists in DOM. And if the error persists, Tag
+												will abort process returning a null value.
+											</div>
+		
+											<h5 class="subsection-title">Properties:</h5>
+											<div class="table-wrap">
+												<table class="props">
+													<thead>
+														<tr>
+															<th>Name</th>
+															<th>Type</th>
+															<th class="last">Description</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td class="name"><code>idDOM</code></td>
+															<td class="type">
+																<span class="param-type">Object</span>
+																|
+																<span class="param-type">null</span>
+															</td>
+															<td class="description last">All DOM's id repeated in Tag.</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="M-idlist">
+										<h4 class="name  name-title" id="idlist"><span class="type-signature"></span>idlist<span class="type-signature"></span></h4>
+										<div class="M-content">
+											<div class="description">
+												<strong>idlist</strong> is an Array that holds a list of HTMLElement id and all it's child Elements id's, null
+												otherwise.
+											</div>
+											<h5 class="subsection-title">Properties:</h5>
+											<div class="table-wrap">
+												<table class="props">
+													<thead>
+														<tr>
+															<th>Name</th>
+															<th>Type</th>
+															<th class="last">Description</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td class="name"><code>idlist</code></td>
+															<td class="type">
+																<span class="param-type">Array</span>
+																|
+																<span class="param-type">null</span>
+															</td>
+															<td class="description last">All id's of each HTMLElements in Tag.</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="M-tag">
+										<h4 class="name  name-title" id="tag"><span class="type-signature"></span>tag<span class="type-signature"></span></h4>
+										<div class="M-content">
+											<div class="description"><strong>tag</strong> property is The Final HTMLElement.</div>
+											<h5 class="subsection-title">Properties:</h5>
+											<div class="table-wrap">
+												<table class="props">
+													<thead>
+														<tr>
+															<th>Name</th>
+															<th>Type</th>
+															<th class="last">Description</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td class="name"><code>tag</code></td>
+															<td class="type">
+																<span class="param-type">HTMLElement</span>
+																|
+																<span class="param-type">null</span>
+															</td>
+															<td class="description last">The final Tag HTMLElement.</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="M-tagchild">
+										<h4 class="name  name-title" id="tagchild"><span class="type-signature"></span>tagchild<span class="type-signature"></span> </h4>
+										<div class="M-content">
+											<div class="description"><strong>tagchild</strong> property is an Array of JS Objects that holds a list of all child Elements of final
+												HTMLElement. Each JS Object holds next properties: <em>element</em>, it's value is an HTMLElement; <em>events</em>, an JS Object with a list of current HTMLElement, <em>tagstring</em>, the current HTMLElement own tagstring.
+											</div>
+											<h5 class="subsection-title">Properties:</h5>
+											<div class="table-wrap">
+												<table class="props">
+													<thead>
+														<tr>
+															<th>Name</th>
+															<th>Type</th>
+															<th class="last">Description</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td class="name"><code>tagchild</code></td>
+															<td class="type">
+																<span class="param-type">Array</span>
+																|
+																<span class="param-type">null</span>
+															</td>
+															<td class="description last">Array of objects containing all Tag's children.</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="M-tagstrings">
+										<h4 class="name  name-title" id="tagstrings"><span class="type-signature"></span>tagstrings<span class="type-signature"></span></h4>
+										<div class="M-content">
+											<div class="description">
+												<strong>tagstrings</strong> is a JS Object that holds two elements: tagstring and mytagString. Each element
+												holds in its value a string. The <strong>tagString</strong> element holds the value of tagString param sended in Tag (or createTag) and <strong>tagstring</strong> element holds a string created for Tag algorithm and show the correct way of how the tagString must be writed. Both elements are datas for programmer's information.<br /><br />
+												<strong>About 'tagString':</strong> Rocforjs gives this name at this parameter because this string is a
+												special type of string, as you know, to write HTML code, it's necessary to write HTML tags (example: &lt;p
+												id="my-p"&gt;Hello&lt;/p&gt;), and then, with this tag, navigators will understand that must to create
+												HTMLElements and render it into the DOM.
+												<br />Rocforjs allows an easy, rapid and simple way to creation of tags, supressing the use of tags symbols
+												(&lt;, / and &gt;) and in base on the HTML tags concept of: "each tag must have a tag name, attributes
+												(optional) and content (optional too)", each HTML tag now can be a simple string that could be converted in a
+												new HTML tag.
+												<br />So, Rocforjs introduces the "tagString" concept, then, a tagString is a common but special type of
+												string, because this kind of string represents an HTML tag. This is the reason of it's name: "tagString".
+												<br />To write any tagString, you must to write first the optional HTML tag name followed by it's optional
+												attributes and finally it's optionally too: content.
+												<br />Example:
+												<ol>
+													<li>Tag name: <code>p</code></li>
+													<li>Tag attributes: <code>(id="my-p")</code></li>
+													<li>Tag content: <code>Hello</code></li>
+													<li>...</li>
+													<li>All in one: <code>p(id="my-p") Hello</code></li>
+												</ol>
+												<p>
+													But, as tagStrings are so simple to write, if your tagString is as simple than the tagString 'Hello World!' of the first and second examples abobe, Tag understands that tagString 'Hello World!' haven't attributes, just content, (tag name is optional). Tag defines that for all tagStrings, it's default tag name for block elements is 'div' and for inline elements is 'span', then, the correct tagString in the example would be: 'div Hello World!'.
+													<br />This correct tagString is builded by Tag internally, in it's core algorithm and the result is called "tagstring", then, always, Tag will return a JS Object "tagstrings" with two elements: "mytagString" and "tagstring", obviously, "mytagString" is the "tagString" data passed by Programmer when create a new Tag, and "tagstring" is the data that Tag build internally.
+													<br /><br />Now you know what tagString and tagstring are, and how can write tagStrings, let define how to
+													write it:
+												</p>
+												<ol>
+													<li>Id's and classes optionaly, can be writed inline before tagname preceded by symbols # (hash) to id and .
+														(dot) to classes:</li>
+													<ol>
+														<li> p#my-p</li>
+														<li> p#my-p.My-p-class</li>
+													</ol>
+													<li>Other attributes must been writed into parenthesess, each attribute separed by commas and one space and
+														it's value beween "":</li>
+													<ol>
+														<li> p#my-p.My-p-class(title="A title", data-mine="my-data", click="function () {alert(\'Hi!\')};")</li>
+													</ol>
+													<li>As, tagname, attributes, and content are optionals in a tagString, followin' tagStrings are valid:</li>
+													<ol>
+														<li> "Hello World!"</li>
+														<li> "p Hello World!"</li>
+														<li> "p#my-p Hello World!"</li>
+														<li> "p.My-p-class Hello World!"</li>
+														<li> "p(id="my-p", class="My-p-class") Hello World!"</li>
+														<li> "(id="my-div", class="My-div-class") Hello World!"</li>
+														<li> "#my-div Hello World!"</li>
+														<li> ".My-div-class Hello World!"</li>
+														<li> "#my-div.My-div-class Hello World!"</li>
+														<li> "#my-div.My-div.center.box Hello World!"</li>
+														<li> "(id="my-div", class="My-div,center box.square, big") Hello World!"</li>
+													</ol>
+													<li>To write tagStrings that holds inline tags, write common tagString between symbols #[mytagString]:</li>
+													<ol>
+														<li> "p Hello World! #[em.square And Hello Rocforjs! #[And Hello Roccou! ]]#[strong And Welcome Tag!]"
+														</li>
+														<li> Under this example, is possible to write many inline tags as the imagination permits.</li>
+													</ol>
+													<li>Tag supports Markdown contents!, it because Rocforjs incorporates a simple and "artesanal" algorithm
+														wrote to perform fast HTML contents (See Mdown Object for more information):</li>
+													<ol>
+														<li> "p MD: #Hello World! #[em.square And Hello Rocforjs! #[And MD: *Hello Roccou!* ]]#[strong And Welcome
+															Tag!]"</li>
+													</ol>
+												</ol>
+												When MD: keyword is used in Tag (Block or Component) <em>tagstring</em> in JS Object <em>tagstrings</em> will
+												adopt a remarked content ([Markdown content/]), not the entirely Markdown content because it's length could be
+												so biggest to be managed as a single property value.
+											</div>
+											<h5 class="subsection-title">Properties:</h5>
+											<div class="table-wrap">
+												<table class="props">
+													<thead>
+														<tr>
+															<th>Name</th>
+															<th>Type</th>
+															<th class="last">Description</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td class="name"><code>tagstrings</code></td>
+															<td class="type">
+																<span class="param-type">Object</span>
+																|
+																<span class="param-type">null</span>
+															</td>
+															<td class="description last">The Tag generated tagstring and Programmer writed mytagString.</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<h5>Example</h5>
+											<pre class="prettyprint"><code>console.log(mytag.tag.tagstrings)
+// Console will log:
+tagstrings:
+	mytagString: "Hello World!]"
+	tagstring: "div Hello World!"</code></pre>
+										</div>
+									</div>
+									<h2 id="Methods" class="Aside  name-group">Methods</h2>
+									<div class="M-delTag">
+										<h4 class="name  name-title" id="delTag"><span class="type-signature"></span>delTag<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+										<div class="M-content">
+											<div class="description">With this method final HTMLElement previously rendered in DOM can be deleted.</div>
+											<h5>Returns:</h5>
+											<div class="param-desc">
+												- Tag object to chain pattern.
+											</div>
+											<dl>
+												<dt>
+													Type
+												</dt>
+												<dd>
+													<span class="param-type">Object</span>
+												</dd>
+											</dl>
+											<h5>Example</h5>
+											<pre class="prettyprint"><code>this.tag = this.tag.createTag('Hello World!')
+this.tag.setTag()
+this.tag.delTag() // HTMLElement will be removed from DOM.</code></pre>
+										</div>
+									</div>
+									<div class="M-getTag">
+										<h4 class="name  name-title" id="getTag"><span class="type-signature"></span>getTag<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
+										<div class="M-content">
+											<div class="description">With this method is possible to get a final HTMLElement.</div>
+											<h5>Returns:</h5>
+											<div class="param-desc">
+												- The final HTMLElment creted with Tag.
+											</div>
+											<dl>
+												<dt>
+													Type
+												</dt>
+												<dd>
+													<span class="param-type">HTMLElement</span>
+												</dd>
+											</dl>
+											<h5>Example</h5>
+											<pre class="prettyprint"><code>this.tag = this.tag.createTag('Hello World!')
+this.tag.getTag() // &lt;div>Hello World!&lt;/div>.</code></pre>
+										</div>
+									</div>
+									<div class="M-setTag">
+										<h4 class="name  name-title" id="setTag"><span class="type-signature"></span>setTag<span class="signature">(where<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+										<div class="M-content">
+											<div class="description">
+												With this method, the final HTMLElement can be rendered on DOM.
+												<br />If where param is ommited, by default, setTag will render final HTMLElement in body or in container
+												determined in <em>props</em> as a id string of an HTMLElement that exists in DOM or JS Object with one of
+												three possible keys: {['after'|'container'|'before']:'id_or_HTMLElemnt'}.
+											</div>
+											<h5>Parameters:</h5>
+											<div class="table-wrap">
+												<table class="params">
+													<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th>Attributes</th>
+														<th>Default</th>
+														<th class="last">Description</th>
+													</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td class="name"><code>where</code></td>
+															<td class="type">
+																<span class="param-type">String</span>
+																|
+																<span class="param-type">HTMLElement</span>
+															</td>
+															<td class="attributes">
+																&lt;optional><br>
+															</td>
+															<td class="default">
+																'body'|'props['after|container|before']|props'
+															</td>
+															<td class="description last">The DOM HTMLElement that will hold new HTMLElement.</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<h5>Returns:</h5>
+											<div class="param-desc">
+											- Tag object to chain pattern.
+											</div>
+											<dl>
+												<dt>
+													Type
+												</dt>
+												<dd>
+													<span class="param-type">Object</span>
+												</dd>
+											</dl>
+											<h5>Example</h5>
+											<pre class="prettyprint"><code>this.tag = this.tag.createTag('Hello World!')
+this.tag.setTag() // HTMLElement will be rendered in DOM's body.</code></pre>
+										</div>
+									</div>
+									<div class="M-tagChild">
+										<h4 class="name  name-title" id="tagChild"><span class="type-signature"></span>tagChild<span class="signature">(index_or_id_child<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {HTMLElement|Array|null}</span></h4>
+										<div class="M-content">
+											<div class="description">With this method is possible to obtain one or all children Elements of a final HTMLElement.</div>
+											<h5>Parameters:</h5>
+											<div class="table-wrap">
+												<table class="params">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Type</th>
+														<th>Attributes</th>
+														<th class="last">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="name"><code>index_or_id_child</code></td>
+														<td class="type">
+															<span class="param-type">String</span>
+															|
+															<span class="param-type">Number</span>
+														</td>
+														<td class="attributes">
+															&lt;optional><br>
+														</td>
+														<td class="description last">The id or index of child element wanted.</td>
+													</tr>
+												</tbody>
+												</table>
+											</div>
+											<h5>Returns:</h5>
+											<div class="param-desc">
+											- An HTMLElement or an Array of HTMLElements or null if main Element does not have children.
+											</div>
+											<dl>
+											<dt>
+												Type
+											</dt>
+											<dd>
+												<span class="param-type">HTMLElement</span>
+												|
+												<span class="param-type">Array</span>
+												|
+												<span class="param-type">null</span>
+											</dd>
+											</dl>
+											<h5>Example</h5>
+											<pre class="prettyprint"><code>this.tag = this.tag.createTag('Hello World! #[span#im I\'m a child Element. ]#[em Me too.]')
+this.tag.tagChild('im') // &lt;span id="im">I'm a child Element. &lt;/span> // It works with id's
+this.tag.tagChild(2) // &lt;em>Me too.&lt;/em> // It works with Array index.
+// Or if do not exist param, a list with all children is returned.
+this.tag.tagChild() // [&lt;span id="im">I'm a child Element. &lt;/span>, &lt;em>Me too.&lt;/em>]</code></pre>
+										</div>
+									</div>
+									<div class="M-tagstringChild">
+										<h4 class="name  name-title" id="tagstringChild"><span class="type-signature"></span>tagstringChild<span class="signature">(index_child<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {String|Array|null}</span></h4>
+										<div class="M-content">
+											<div class="description">
+												With this method is possible to obtain one or all tagstring of child Elements.
+											</div>
+											<h5>Parameters:</h5>
+											<div class="table-wrap">
+												<table class="params">
+													<thead>
+														<tr>
+															<th>Name</th>
+															<th>Type</th>
+															<th>Attributes</th>
+															<th class="last">Description</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td class="name"><code>index_child</code></td>
+															<td class="type">
+																<span class="param-type">Number</span>
+															</td>
+															<td class="attributes">
+																&lt;optional><br>
+															</td>
+															<td class="description last">The index of child element wanted.</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<h5>Returns:</h5>
+											<div class="param-desc">
+											- A string or an Array of strings or null if main Element does not have children.
+											</div>
+											<dl>
+												<dt>
+													Type
+												</dt>
+												<dd>
+													<span class="param-type">String</span>
+													|
+													<span class="param-type">Array</span>
+													|
+													<span class="param-type">null</span>
+												</dd>
+											</dl>
+											<h5>Example</h5>
+											<pre class="prettyprint"><code>this.tag = this.tag.createTag('Hello World! #[span#im I\'m a child Element. ]#[em Me too.]')
+this.tag.tagstringChild(2) // "em Me too." // It works just with Array index.
+// If do not exist param, a list with all tagstring children is returned.
+this.tag.tagstringChild() // ["Hello World!", "span#im I\'m a child Element. ", "em Me too."]</code></pre>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+					</section>
+				</div>
+				<nav class="one  M-one-20  M-fix  center  M-left  M-p-left-1">
+					<h2><a href="index.html">Home</a></h2>
+					<h3>Classes</h3>
+					<ul>
+						<li><a href="R_.html" class="button  button-1  d-block">R</a></li>
+						<li><a href="R_Component.html" class="button  button-1  d-block">R.Component</a></li>
+					</ul>
+					<h3>Tag Parts</h3>
+					<ul>
+						<li><a href="#Properties" class="button  button-1  d-block">Properties</a></li>
+						<li><a href="#Methods" class="button  button-1  d-block">Methods</a></li>
+					</ul>
+				</nav>
+				<br class="clear">
+			</div>
+			<footer class="Footer  roc-fluid  p-1  m-top-5  bg-0">
+				<div class="roc  inline  middle  p-3  M-p-0">
+					<div class="one  one-20  left">
+						<p>License: <a href="https://github.com/Roccouu/rocfor/blob/master/LICENSE" title="Rocfor License">MIT</a></p>
+					</div>
+					<div class="one  one-80  right">
+						<p>
+							<span class="d-none  M-d-inline">Documentation generated by </span>
+							<a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+							<span class="d-none  M-d-inline">on Wed May 15 2019 22:23:09 GMT-0400 (-04)</span>
+						</p>
+					</div>
+				</div>
+			</footer>
+		</div>
+		<script>
+			prettyPrint();
+		</script>
+		<script src="scripts/linenumber.js"> </script>
+	</body>
+</html>

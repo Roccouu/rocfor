@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>JSDoc: Method: Mdown</title>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+		<title>Rocfor.js Docs</title>
+		<meta name="description" content="Rocfor.js Documentation index">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="robots" content="index, follow">
+		<link rel="shortcut icon" type="image/png" href="../assets/img/favicon.ico">
+		<link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
+		<link rel="shortcut icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+		<link rel="apple-touch-icon" size="" href="../assets/img/apple-touch-icon.png">
+		<link rel="author" type="text/plain" href="../humans.txt">
+		<link rel="sitemap" type="application/xml" title="Sitemap" href="../sitemap.xml">
+
+		<script src="scripts/prettify/prettify.js"> </script>
+		<script src="scripts/prettify/lang-css.js"> </script>
+		<!--[if lt IE 9]>
+				<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<![endif]-->
+		<link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+		<link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+
+		<link rel="stylesheet" href="../assets/css/styles.min.css">
+	</head>
+	<body>
+		<div class="Fullpage Fullpage-fixed-header bgc-1">
+			<div class="Header roc-fluid p-2 m-bottom-3 bg-0 center">
+				<div class="roc">
+					<div class="one">
+						<a href="https://roccouu.github.io/rocfor/">
+							<img height="50px" width="50px" src="../assets/img/rocforjs.svg" alt="">
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="Body Container roc M-inline M-top  co-1  rel  m-top-6">
+				<div id="main" class="one  M-one-70">
+					<h1 class="page-title">Method: Mdown</h1>
+					<section class="mauto  M-m-right-2  table-wrap">
+						<header>
+							<h2>Mdown</h2>
+						</header>
+						<article>
+							<div class="container-overview">
+								<div class="description">Mdown is a short Markdown contents translator to HTML. Do not support nested elements
+									as p or ul in blockquotes.<br />
+									Supports classes: class(w,x y.z), and id's: id(myid). It was spetialy thinked for developers.</div>
+								<h3>Example</h3>
+								<pre class="prettyprint"><code>let mymd = Mdown('# I\'m an H1') // &lt;h1>I'm an H1&lt;/h1>
+let mymd = Mdown('id(myh1)# I\'m an H1') // &lt;h1 id="myh1">I'm an H1&lt;/h1>
+let mymd = Mdown('class(Foo.Bar Baz-baz)# I\'m an H1') // &lt;h1 class="Foo  Bar  Baz-baz">I'm an H1&lt;/h1>
+let mymd = Mdown('id(myh1)class(Foo.Bar Baz-baz)# I\'m an H1') // &lt;h1 id="myh1" class="Foo  Bar  Baz-baz">I'm an H1&lt;/h1>
+// Use ? (with one space ending) to create a div tag and ? (with two space ending) to close div:
+let mymd = Mdown(`
+'id(mydiv)class(Foo)? 
+# I'm an H1 inside a div with id mydiv.
+?  `) // &lt;div id="mydiv">&lt;h1>I'm an H1 inside a div with id mydiv.&lt;/h1>&lt;/div>
+// If you want to introduce backticks (``) in your content, please use (´´) tokens.
+let mymd = Mdown('A paragraph ´p´ in my content.') // &lt;p>A paragraph `p` in my content.&lt;/p>
+// Lists ul or ol must to have one space ending in open tag and two spaces in close tag as ? on div tag.
+
+// It supports 'rvars':
+let cont = 'in my content' // a global variable.
+let mymd = Mdown('A paragraph ´p´ $cont.') // &lt;p>A paragraph `p` in my content.&lt;/p>
+let local = 'MY CONTENT' // a local variable.
+let mymd2 = Mdown('A paragraph ´p´ $$loc.', {'loc':local}) // &lt;p>A paragraph `p` MY CONTENT.&lt;/p>
+// To obtain hr tag: ------ or ______ or ======
+// For ul lists tags: + or * or - and then any content with one space ending the first line and two spaces the last line.
+// For ol lists tags: 1. (any number foolwed by dot and a tab) and then any content with
+// one space ending the first line and two spaces the last line.
+// For paragraph tags: Just any content for one line, two spaces ending inserts an br tag and three spaces ends p tag.
+// For pre tags: ``` or +++ or \`\`\` followed by language name, as: javascript. This language name will be
+// added on HTML pre tag as a class. ``` or +++ or \`\`\` to end pre tag.
+// For tables: Use | to separe datas as in normal Markdown. First line will be the thead tag and next lines will be
+// inserted on tbody tag and in it's tr and td tags.
+// For contents with links and images references, use a document divided in two parts: The main content and The references section:
+// Example:
+// 'This is an example content with a referenced link [Rocforjs][1] and a referenced image: ![alt text][id]
+// [//]: # References
+// [1]: http://rocforjs.com/	"Rocforjs"
+// [id]: /path/to/img.jpg	"Title"</code></pre>
+							</div>
+						</article>
+
+					</section>
+				</div>
+
+				<nav class="one  M-one-20  M-fix  center  M-left  M-p-left-1">
+					<h2><a href="index.html">Home</a></h2>
+					<h3>Classes</h3>
+					<ul>
+						<li><a href="R_.html" class="button  button-1  d-block">R</a></li>
+						<li><a href="R_Component.html" class="button  button-1  d-block">R.Component</a></li>
+					</ul>
+				</nav>
+				<br class="clear">
+			</div>
+			<footer class="Footer  roc-fluid  p-1  m-top-5  bg-0">
+				<div class="roc  inline  middle  p-3  M-p-0">
+					<div class="one  one-20  left">
+						<p>License: <a href="https://github.com/Roccouu/rocfor/blob/master/LICENSE" title="Rocfor License">MIT</a></p>
+					</div>
+					<div class="one  one-80  right">
+						<p>
+							<span class="d-none  M-d-inline">Documentation generated by </span>
+							<a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+							<span class="d-none  M-d-inline">on Wed May 15 2019 22:23:09 GMT-0400 (-04)</span>
+						</p>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<script>
+			prettyPrint();
+		</script>
+		<script src="scripts/linenumber.js"> </script>
+	</body>
+</html>
