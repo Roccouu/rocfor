@@ -231,4 +231,4 @@ See the [CONTRIBUTING Guidelines](https://github.com/roccouu/rocfor/blob/master/
 
 ## License
 
-[MIT](https://github.com/roccouu/rocfor/blob/master/LICENSE) © | [Roccou](twitter.com/@roccouuu)
+[MIT](https://github.com/roccouu/rocfor/blob/master/LICENSE) © | [Roccou](https://twitter.com/_roccou)

@@ -12,7 +12,7 @@ class SPAIndex extends R {
 		this.createControllers = this.createControllers.bind(this)
 		this.createRoutes()
 		this.createControllers()
-		// console.log(`${this.main.docs.classlist.join(' ')}\n\n${this.main.home.classlist.join(' ')}\n\n${this.main.tuto.classlist.join(' ')}`)
+		// console.log(`${this.main.docs.classlist.join(' ')}\n\n${this.main.home.classlist.join(' ')}\n\n${this.main.tuto.classlist.join(' ')}\n\n${this.main.samp.classlist.join(' ')}\n\n${this.main.fhf.classlist.join(' ')}`)
 	}
 	createRoutes () {
 		this.spa.setRoutes({
@@ -44,9 +44,11 @@ class SPAIndex extends R {
 				}
 			},
 			'samples': {
-				'template': 'Samples',
-				'controller': 'samples',
-				'callback': () => console.log('There are a lot of Examples!')
+				'template': this.main.samp.getComponent(),
+				'controller': 'samp',
+				'callback': () => {
+					this.spa.playRoute().samp(this)
+				}
 			},
 			'404': {
 				'template': this.main.fhf.getComponent()
@@ -68,6 +70,10 @@ class SPAIndex extends R {
 				me.r.changeClass(me.main.header, 'Header', 'Header-reduced')
 				me.r.changeClass('container', 'Container', 'Container-biggest')
 			},
+			'samp': me => {
+				me.r.changeClass(me.main.header, 'Header', 'Header-reduced')
+				me.r.changeClass('container', 'Container', 'Container-biggest')
+			}
 		})
 	}
 }

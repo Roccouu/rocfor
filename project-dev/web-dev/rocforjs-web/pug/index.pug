@@ -23,24 +23,36 @@ html(lang="es")
 	body
 		#app.Fullpage.bgc-1
 			header#header.Header.roc-fluid.p-2.m-bottom-3.bg-0
-				#header-title.Header-title.roc
+				#header-title.Header-title.roc.p-left-1.p-right-1.L-p-left-0.L-p-right-0
 					h1= title
-						em.thm-subtitle  Reactive Objects and Components for <strong class="f-7">JavaScript&TRADE;</strong>
-					p Una librería para el desarrollo web en el lado del cliente.
-				nav#header-menu.Header-nav.roc.inline
-					ul.Header-items.thm-listnone.roc.inline.one.one-60
-						li.one.one-g-33 #[a(href="#/tutorial", id="tuto", class="d-block  center  button") Tutorial]
-						li.one.one-g-33 #[a(href="#/samples", id="samp", class="d-block  center  button") Ejemplos]
-						li.one.one-g-33 #[a(href="#/docs", id="docs", class="d-block  center  button") Documentación]
-					ul.Header-logo.thm-listnone.inline.one.one-40.right
-						li.one.one-g-50.p-5 #[a(href="https://github.com/Roccouu/rocfor", id="git", class="Link-default  d-block") GitHub]
+						em.thm-subtitle.d-none.M-d-inline  Objetos y Componentes Reactivos con <strong class="f-7">JavaScript&TRADE;</strong>
+					p.d-none.M-d-inline Una librería para el desarrollo web en el lado del cliente.
+				nav#header-menu.Header-nav.roc.inline.p-left-1.p-right-1.L-p-left-0.L-p-right-0
+					ul.Header-items.thm-listnone.roc.inline.one.one-50.M-one-60
+						li.one.one-g-33
+							a(href="#/tutorial", id="tuto", class="d-block  center  button")
+								span(class="icon-lap  M-d-none")
+								span(class="d-none  M-d-inline") Tutorial
+						li.one.one-g-33
+							a(href="#/samples", id="samp", class="d-block  center  button")
+								span(class="icon-pin  M-d-none")
+								span(class="d-none  M-d-inline") Ejemplos
+						li.one.one-g-33
+							a(href="#/docs", id="docs", class="d-block  center  button")
+								span(class="icon-doc  M-d-none")
+								span(class="d-none  M-d-inline") Documentación
+					ul.Header-logo.thm-listnone.inline.one.one-50.M-one-40.right
+						li.one.one-g-50.p-5
+							a(href="https://github.com/Roccouu/rocfor", id="git", class="Link-default  d-block")
+								span(class="icon-github  M-d-none")
+								span(class="d-none  M-d-inline") GitHub
 						li.one.one-g-50 #[a(href="#/", id="home", class="Link-default  d-block") <img src="./assets/img/rocjs.svg" alt="Rocjs" class="Image" />]
-			#container.Body.Container.roc.co-1
+			#container.Body.Container.roc.co-1.p-left-1.p-right-1.L-p-left-0.L-p-right-0
 			noscript
-				#noscript.Body.Container.roc.center
+				#noscript.Body.Container.roc.center.p-left-1.p-right-1.L-p-left-0.L-p-right-0
 					.one.p-2
 						p.thm-important Este sistema requiere JavaScript para funcionar. Por favor, habilite esta funcionalidad en su navegador.
-			input(type="hidden", name="" class="docss docss-docss roc-fluid p-2 m-top-5 Docs-nav Docs-items thm-listnone roc inline one-80 one one-g-50 p-5 Button Button-default Link d-block center subContainer-roc Container-roc-banner roc-fluid color-grey-1 p-2 thm-subtitle Intro-roc one-g-70 mfullleft mfullright Padded-list thm-important center Examples m-bottom-5 Example roc inline top m-top25 Example-title color-grey-4 Example-content one-60 h-50 Code Codetext Coderesult one one-40 thm-oy p-1 h-100 p-top-2 p-bottom-2 p-left-2 Result Tuto-roc Container-roc-banner roc-fluid color-grey-1 p-2 thm-subtitle Intro-roc one-g-70 mfullleft mfullright thm-important center Examples Example m-top25 Example-title color-grey-4 Example-content one-60 h-50 Codetext h-100 Tuto-content roc inline top one-g-80 Download m-top5 Aside Tuto-section Coderesult one-40 thm-oy p-1 p-top-2 p-bottom-2 p-left-2 Result Padded-list m-bottom-5 Code Tuto-aside one one-g-20 m-top-5 rel thm-listnone fix")
+			input(type="hidden", name="" class="docss docss-docss table middle p-2 Docs-nav Docs-items thm-listnone roc M-inline M-one-80 one M-one-g-50 p-5 button button-1 d-block center subContainer-roc Container-roc-banner roc-fluid co-1 p-2 thm-subtitle Intro-roc M-one-g-70 mfullleft mfullright Padded-list thm-important center Examples m-bottom-5 Example M-Example roc M-inline M-top m-top25 Example-title bg-0 Example-content M-one-60 h-50 Code Codetext Coderesult one M-one-40 thm-oy p-1 h-100 p-top-2 p-bottom-2 p-left-2 Result Tuto-roc Container-roc-banner roc-fluid co-1 p-2 thm-subtitle Intro-roc M-one-g-70 mfullleft mfullright thm-important center Examples Example M-Example m-top25 Example-title bg-0 Example-content M-one-60 h-50 Codetext h-100 Tuto-content roc M-inline M-top M-one-g-80 Download cdn npminstall m-top5 Aside Tuto-section Coderesult M-one-40 thm-oy p-1 p-top-2 p-bottom-2 p-left-2 Result Padded-list m-bottom-5 Code Tuto-aside one one-g-20 m-top-5 rel d-none M-d-block thm-listnone fix roc center M-left Samples one m-bottom-3 codepen roc table middle center one")
 
 		// build:js ./assets/js/index.min.js
 		each js in files.es6

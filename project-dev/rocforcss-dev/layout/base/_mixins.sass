@@ -36,9 +36,11 @@ $per: '%'
 
 // ---- Permite crear layouts en la media querie indicada.
 =floatlayout($media)
+	.#{$media}floatleft > .one,
 	.#{$media}floatleft > .#{$media}one
 		&, &-g, &-gh
 			float: left
+	.#{$media}floatright > .one,
 	.#{$media}floatright > .#{$media}one
 		&, &-g, &-gh
 			float: right
@@ -51,6 +53,7 @@ $per: '%'
 =tablelayout($media)
 	.#{$media}table
 		display: table
+		& > .one,
 		& > .#{$media}one
 			&, &-g, &-gh
 				display: table-cell
@@ -58,12 +61,14 @@ $per: '%'
 =inlinelayout($media)
 	.#{$media}inline
 		font-size: 0
+		& > .one,
 		& > .#{$media}one
 			&, &-g, &-gh
 				display: inline-block
 	.#{$media}block
 		font-size: 0
 		vertical-align: bottom
+		& > .one,
 		& > .#{$media}one
 			&, &-g, &-gh
 				display: block
@@ -72,20 +77,25 @@ $per: '%'
 	.#{$media}flex
 		display: flex
 		flex-wrap: wrap
+		& > .one,
 		& > .#{$media}one
 			&, &-g, &-gh
 				flex: none
 
 =alignments($media)
+	.#{$media}top > .one,
 	.#{$media}top > .#{$media}one
 		&, &-g, &-gh
 			vertical-align: top
+	.#{$media}middle > .one,
 	.#{$media}middle > .#{$media}one
 		&, &-g, &-gh
 			vertical-align: middle
+	.#{$media}bottom > .one,
 	.#{$media}bottom > .#{$media}one
 		&, &-g, &-gh
 			vertical-align: bottom
+	.#{$media}baseline > .one,
 	.#{$media}baseline > .#{$media}one
 		&, &-g, &-gh
 			vertical-align: baseline

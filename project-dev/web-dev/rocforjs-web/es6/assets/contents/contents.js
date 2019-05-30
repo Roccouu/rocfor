@@ -2,11 +2,12 @@
 class Contents {
 	constructor() {
 		this.date = new Date()
+		this.docs = './docs/index.html'
 		this.content = {
 			'main': `class(Container-roc-banner.roc-fluid.co-1.p-2.m-bottom-5)? 
 class(center)## Rocfor.js
 class(center.thm-subtitle.m-bottom-5)Una sencilla librería para construir objetos y componentes reactivos en JavaScript&TRADE;
-class(Intro-roc.one.one-g-70.mfullleft.mfullright.m-bottom-5)? 
+class(Intro-roc.one.M-one-g-70.mfullleft.mfullright.m-bottom-5)? 
 ### Con Rocfor.js se puede:
 class(Padded-list.m-bottom-5)* Agilizar tareas mediante métodos como _unique_ del Método Resources, que obtiene un arreglo con valores únicos, 
 * Elaborar rápida y facilmente simples Elementos HTML *(Tags)*, Bloques HTML *(Blocks)* y Componentes Reactivos *(Components)* para su Proyecto Web,
@@ -17,9 +18,9 @@ class(Padded-list.m-bottom-5)* Agilizar tareas mediante métodos como _unique_ d
 class(thm-important.center)El deseo es que la Librería sea de mucha utilidad.
 ?  
 class(Examples)? 
-id(simple-comp)class(Example.roc.inline.top.m-bottom-5)? 
+id(simple-comp)class(Example.M-Example.roc.M-inline.M-top.m-bottom-5)? 
 class(Example-title.p-1.bg-0)#### Un Componente sencillo:
-class(Example-content.one.one-60)? 
+class(Example-content.one.M-one-60)? 
 class(Code.Codetext.h-100)+++ javascript
 	// ¡Un Componente simple con Rocfor.js!
 	// A simple Component with Rocfor.js!
@@ -45,16 +46,16 @@ class(Code.Codetext.h-100)+++ javascript
 	}
 +++
 ?  
-class(Coderesult.one.one-40.thm-oy.p-1)? 
+class(Coderesult.one.M-one-40.thm-oy.p-1)? 
 class(p-top-2.p-bottom-2.p-left-2)#### Resultado:
 id(simplecomp)class(Result)? 
 ?  
 ?  
 ?  
 
-id(simple-todo)class(Example.roc.inline.top.m-bottom-5)? 
+id(simple-todo)class(Example.M-Example.roc.M-inline.M-top.m-bottom-5)? 
 class(Example-title.p-1.bg-0)#### Una Lista de Tareas:
-class(Example-content.one.one-60.h-50)? 
+class(Example-content.one.M-one-60.h-50)? 
 class(Code.Codetext.h-100)+++ javascript
 	// ¡Una Lista de tareas con Rocfor.js!
 	// A Todo List with Rocfor.js!
@@ -85,16 +86,16 @@ class(Code.Codetext.h-100)+++ javascript
 	}
 +++
 ?  
-class(Coderesult.one.one-40.thm-oy.p-1)? 
+class(Coderesult.one.M-one-40.thm-oy.p-1)? 
 class(p-top-2.p-bottom-2.p-left-2)#### Resultado:
 id(simpletodo)class(Result)? 
 ?  
 ?  
 ?  
 
-id(simple-countdown)class(Example.roc.inline.top.m-top25)? 
+id(simple-countdown)class(Example.M-Example.roc.M-inline.M-top.m-top25)? 
 class(Example-title.p-1.bg-0)#### Un Contador regresivo:
-class(Example-content.one.one-60.h-50)? 
+class(Example-content.one.M-one-60.h-50)? 
 class(Code.Codetext.h-100)+++ javascript
 	// ¡Contador regresivo con Rocfor.js!
 	// Countdown with Rocfor.js!
@@ -135,7 +136,7 @@ class(Code.Codetext.h-100)+++ javascript
 	}
 +++
 ?  
-class(Coderesult.one.one-40.thm-oy.p-1.h-100)? 
+class(Coderesult.one.M-one-40.thm-oy.p-1.h-100)? 
 class(p-top-2.p-bottom-2.p-left-2)#### Resultado:
 id(simplecountdown)class(Result)? 
 ?  
@@ -143,26 +144,26 @@ id(simplecountdown)class(Result)?
 ?  
 ?  `,
 
-			'footer': `class(roc.inline.middle.download-zone.center.p-1)? 
-class(one.one-g-33.left)? 
+			'footer': `class(roc.M-inline.middle.download-zone.center.p-1)? 
+class(one.M-one-g-33.M-left.center)? 
 class(thm-title)Descargar:
-[Rocfor.js](https://github.com/Roccouu/rocfor/tree/master/project-dist/rocforjs "Descargar Rocfor.js")
+[Rocfor.js](https://github.com/Roccouu/rocfor/blob/master/project-dist/rocforjs/rocfor-1.0.0.min.js "Descargar Rocfor.js")
 ?  
-class(one.one-g-33)? 
+class(one.M-one-g-33)? 
 class(roc.center.copycom)? 
-[Roccou](https://twitter.com/Roccouuu "Roccou")
+[Roccou](https://twitter.com/_roccou "Roccou")
 Potosí - Bolivia - ${this.date.getFullYear()}
 ?  
 ?  
-class(one.one-g-33.right)? 
+class(one.M-one-g-33.M-right)? 
 Licencia:
-[MIT](# "Rocfor License")
+[MIT](https://github.com/roccouu/rocfor/blob/master/LICENSE "Rocfor License")
 ?  
 ?  `,
 
 			'tuto':`
-class(Tuto-content.roc.inline.top)? 
-class(one.one-g-80)? 
+class(Tuto-content.roc.M-inline.M-top)? 
+class(one.M-one-g-80)? 
 
 id(init)class(Aside.Tuto-section.m-bottom-5)? 
 ## Iniciar con Rocfor.js.
@@ -173,11 +174,11 @@ El entorno de Rocfor ofrece dos Clases de las cuales es posible instanciar nuevo
 El primero contiene propiedades y métodos para realizar tareas comunes de programación.
 El segundo contiene propiedades y métodos para crear Componentes reactivos además de solventar las tareas comunes de programación.
 En esta sección se muestra la información básica para que pueda familiarizarse con La Librería.
-Antes de comenzar:    
+Antes de comenzar:
 class(Download)Puede descargar Rocfor.js desde su repositorio oficial en GitHub: [Rocfor.js](https://github.com/Roccouu/rocfor "Rocfor.js").
-O copiar el CDN en su archivo HTML principal:    
+O copiar el CDN en su archivo HTML principal:
 class(cdn)CDN: \`https://cdn.jsdelivr.net/gh/Roccouu/rocfor@master/project-dist/rocforjs/rocfor-1.0.0.min.js\`
-O si trabaja con [NPM](https://www.npmjs.com/ "NPM") recuerde descargarla como dependencia de proyecto:    
+O si trabajar con [NPM](https://www.npmjs.com/ "NPM") recuerde descargarla como dependencia de proyecto:
 class(npminstall)Instalación desde NPM: \`\$ npm install --save rocfor\`
 
 El paso que sigue deberá ser enlazar Rocfor a un documento HTML, (se puede insertar una etiqueta contendora en \`body\` -el cuerpo del documento- o simplemente dejar la etiqueta \`body\` con sólo la etiqueta script mediante la cual se llama a *La Librería*:
@@ -201,7 +202,7 @@ class(Code)+++ html
 	</html>
 +++
 
-Ahora todo el entorno Rocfor.js está disponible en el proyecto ya que fue registrado en El Objeto **window** de JavaScript.    
+Ahora todo el entorno Rocfor.js está disponible en el proyecto ya que fue registrado en El Objeto **window** de JavaScript.
 La forma de acceder al entorno Rocfor.js es mediante la letra: \`R\`.
 El algoritmo de inicialización de Rocfor.js verifica que ninguna otra librería o *framework* JavaScript esté registrado en el objeto window con el nombre *R*, pero si así fuere, se ejecutan inmediatemente otras alternativas:
 class(Padded-list.m-bottom-5)	1.	Rocfor.js dispondrá el término ***Rocfor*** como el nombre de su entorno. 
@@ -239,7 +240,7 @@ class(Padded-list.m-top5)+ **Ajax** (Método): Precisamente para trabajos asínc
 + **Block**: Método que le permitirá crear Bloques de uno o varios Elementos HTML,
 * __SPA__: Mediante este Método podrá crear Aplicaciones de una sola página, y,
 * __Mdown__: Un Método inspirado en la idea de [John Gruber](https://daringfireball.net/projects/markdown/ "John Gruber webpage") pero que en realidad es un tipo de Markdown pensado para programadores.  
-Cuando desee trabajar con Componentes, Rocfor.js le ofrecerá un entorno pensado específicamente para esta tarea y requerirá invocar al Método Component específico de Rocfor.js.  
+Cuando desee trabajar con Componentes, Rocfor.js le ofrecerá un entorno pensado específicamente para esta tarea y requerirá invocar al Método Component específico de Rocfor.js.
 Los métodos que se explican en este tutorial son ___Tag___, ___Block___ y el Método ___Component___ de la Clase R.Component (La segunda Clase que conforma Rocfor.js. Será explicada más adelante)
 ?  
 
@@ -315,7 +316,7 @@ Donde:
 class(Padded-list.m-bottom-5)* **NombreEtiqueta:** Opcional, si se omite, Tag crea por defecto un \`div\`. 
 * **Atributos:** #id, .class ó (id="un-id", class="Una-clase", title="Un título", ...), Todos los atributos son opcionales. Los atributos tienen dos partes (desde luego, ambas opcionales), la primera es denominada ___atributos iniciales___, en esta parte pueden ser incluidos dos tipos de atributos: _id_ y _class_; los ___id___ pueden ser escritos antecedidos por un caracter numeral (hash \#) y las ___clases___ antecedidas por un punto (dot .). Estos atributos deben se deben escribir sin espacios ni caracteres diferentes a una cadena regular, ejemplos: #un-id.Una-clase.otra-clase, .Una-clase#un-id.Otraclase, .Una-clase.otra-clase#un-id. El segundo tipo de atributos son los poco comunes o diferentes a los id y clases, deben ir entre paréntesis como los atributos normales de las etiquetas HTML normales pero separados por coma y un espacio, ejemplos: (href="#", title="Un título"), los id y clases también pueden escribirse como atributos del segundo tipo, ejemplo: (href="#", id="un-id", title="Un título", class="Una-clase otra-clase"). Al ser opcional el nombre de la etiqueta, el tagString puede comenzar con cualquier atributo de cualquiera de los dos tipos mencionados.
 * **Contenido:** Cualquier contenido incluido Markdown o ninguno. Para poder escribir contenidos en la tagString, debe dejarse un espacio al inicio del contenido, ejemplo: h1 Un contenido, #un-id Un contenido, .Una-clase Otro contenido, (id="un-id") Un contenido. Si envía sólo un contenido, el espacio inicial es innecesario, ejemplo: Un contenido.
-* **Nodos hijos:** Entre los símbolos |[ y ] Si se omite \`nombreEtiqueta\` en nodo hijo, Tag crea por defecto un \`span\`. Luego,la escritura de los nodos hijo sigue las mismas reglas ya citadas.   
+* **Nodos hijos:** Entre los símbolos |[ y ] Si se omite \`nombreEtiqueta\` en nodo hijo, Tag crea por defecto un \`span\`.  Luego,la escritura de los nodos hijo sigue las mismas reglas ya citadas.  
 
 Por tanto el modo ágil de escritura de etiquetas se resume a escribir cadenas bajo ese formato.
 En Rocfor.js, estas cadenas se denominan **tagString**, porque son cadenas del tipo dato ___JavaScript String___ y representan a una Etiqueta HTML o ___tag___ (de ahí su nombre: tagString).
@@ -365,8 +366,8 @@ class(Padded-list.m-bottom-5)	1. si utiliza los símbolos [ y ] siempre escriba 
 
 __Tag__ además de una _tagString_ puede recibir otros tres parámetros opcionales:
 class(Padded-list.m-bottom-5)	1. _fn_: que es una referencia a una función que puede asignar a un evento del Elemento HTML que construye, 
-	1.	_scope_: que es el ámbito de la función o clase JavaScript en la que trabaja y donde se encuentra la nueva instancia de Tag que haya declarado, este parámetro le será útil sobretodo cuando trabaja con Objetos o Clases JavaScript en donde también podrá crear simplemente un constructor del objeto Tag y asignarlo a una variable o propiedad, este es otro modo de trabajar con Tag. Vea la [Documentación de Rocfor.js](./assets/book/rocfor.pdf "Descargar el libro de Rocfor.js") para obtener información más detallada; y
-	1.	_rvars_: un modelo de variables propuestas por Rocfor.js para cuando desee insertar variables en las tagString. Este parámetro es el acrónimo de __Rocfor.js variables__ y consiste en un argumento especial que fue pensado para enviar variables a Rocfor.js dentro de las cadenas _blockString_, su formato es: Caso 1: \`$variable, Caso 2: $$$variable-en-objeto-javascript ó Caso 3: $(alguna operación aritmética)\`, __aunque su uso es poco recomendado en el primer y tercer casos__; con la primera forma, podrá enviar cualquier variable declarada a partir del ámbito inmediatamente superior al actual, por ejemplo, si declaró una variable \`let x = 0;\`, para enviar esta variable a un _tagString_ deberá escribir el nombre de la variable _x_ antecedido por el caracer $, así: \`this.Tag(\'span Soy la variable x en un contenido y mi valor es: $x\')\`. Desde luego, los valores que retornen estas variables deberán ser numéricos o cadenas. La segunda forma de _rvars_ buscará el nombre de la variable en un objeto que envíe en el parámetro _rvars_; y la tercera forma le permitirá evaluar cualquier operación matemática en un _blockString_. Consulte la [Documentación de Rocfor.js](./assets/book/rocfor.pdf "Descargar el libro de Rocfor.js") para obtener información más detallada.  
+	1.	_scope_: que es el ámbito de la función o clase JavaScript en la que trabaja y donde se encuentra la nueva instancia de Tag que haya declarado, este parámetro le será útil sobretodo cuando trabaja con Objetos o Clases JavaScript en donde también podrá crear simplemente un constructor del objeto Tag y asignarlo a una variable o propiedad, este es otro modo de trabajar con Tag. Vea la [Documentación de Rocfor.js](${this.docs} "Descargar el libro de Rocfor.js") para obtener información más detallada; y
+	1.	_rvars_: un modelo de variables propuestas por Rocfor.js para cuando desee insertar variables en las tagString. Este parámetro es el acrónimo de __Rocfor.js variables__ y consiste en un argumento especial que fue pensado para enviar variables a Rocfor.js dentro de las cadenas _blockString_, su formato es: Caso 1: \`$variable, Caso 2: $$$variable-en-objeto-javascript ó Caso 3: $(alguna operación aritmética)\`, __aunque su uso es poco recomendado en el primer y tercer casos__; con la primera forma, podrá enviar cualquier variable declarada a partir del ámbito inmediatamente superior al actual, por ejemplo, si declaró una variable \`let x = 0;\`, para enviar esta variable a un _tagString_ deberá escribir el nombre de la variable _x_ antecedido por el caracer $, así: \`this.Tag(\'span Soy la variable x en un contenido y mi valor es: $x\')\`. Desde luego, los valores que retornen estas variables deberán ser numéricos o cadenas. La segunda forma de _rvars_ buscará el nombre de la variable en un objeto que envíe en el parámetro _rvars_; y la tercera forma le permitirá evaluar cualquier operación matemática en un _blockString_. Consulte la [Documentación de Rocfor.js](${this.docs} "Descargar el libro de Rocfor.js") para obtener información más detallada.  
 ¿Sonó interesante?, qué tal si ahora obtiene además de un solo Elemento HTML, ¡un Bloque de Elementos HTML!.
 ?  
 
@@ -458,7 +459,7 @@ class(Code)+++ javascript
 	}
 +++
 Y \`MiClase\` adoptará un ámbito específico para trabajar con R.Component, en el que contará con los siguientes métodos y propiedades:
-class(Padded-list.m-top5)* __props__ (Propiedad): Una propiedad que adopta el valor que envíe en el parámetro _props_ que recibe ___R.Component___,
+class(Padded-list.m-top5)* __props__ (Propiedad): Una propiedad que adopta el valor que envíe en el parámetro _props_ que recibe ___R.Component___, 
 * __r__: Los recursos de Rocfor.js mediante los cuales podrá realizar tareas comunes,
 * __state__: El estado interno del Componente.
 * __version__: Propiedad que le devuelve, eso: la versión de Rocfor.js,
@@ -503,9 +504,9 @@ class(Code)+++ javascript
 +++
 Ahora observe el resultado:
 id(todores)? 
-class(Coderesult.one.one-40.thm-oy.p-1)? 
+class(Coderesult.one.M-one-40.thm-oy.p-1)? 
 class(p-top-2.p-bottom-2.p-left-2)#### Resultado:
-id(mysimpletodo)class(Result)? 
+id(mysimpletodo)class(Result)?
 ?  
 ?  
 ?  
@@ -540,6 +541,7 @@ Lo que hace esta sentencia es asignar a una nueva propiedad de \`SimpleTodo\` un
 class(Padded-list.m-bottom-5)* Como verá, el _tagString_ de la línea 10. corresponde a una Etiqueta \`div\` con una clase \`SimpleTodo\`. 
 * En la línea 11. se especifica un _tagString_ para una Etiqueta HTML \`h1\` con id \`countertask\` y un contenido \`Lista de Tareas\`.
 * La siguiente línea describe un \`input\` de tipo \`text\`, aquí debe observar especialmente, el atributo \`keypress="task"\` del _tagString_, ¿se pregunta qué tipo de instrucción o atributo es?, la respuesta es sencilla, se trata del evento \`onkeypress\` que se declara en la lista de atributos del Elemento HTML que se intenta crear, note también que se asigna a este evento el método \`task\` de la Clase que fue declarado en la línea 8., ¿tiene curiosidad por saber cómo se presenta este evento en el Elemento HTML que corresponde a este _tagString_ una vez inserto en el DOM?, búsquelo y obsérvelo, _es una recomendación_, así como también lo es, el que se dirija a la opción Documentación de esta Aplicación Web y descargue el Libro que le entrega todos los detalles de La Librería.  
+
 En la línea 13., se tiene el último _tagString_ del Componente, se trata de un botón de id \`todobutton\` que a su vez tiene un par de atributos y un contenido, entre sus atributos, aparece otro evento: \`click="task"\`, luego, después del _componentString_, se envía un segundo parámetro, el de _fn_, ¿lo recuerda?, precisamente, éste, hace referencia al método declarado en la línea 8. y que el Componente \`todo\` ejecutará en los eventos \`onkeypress y onclick\` de los Elementos HTML \`input todo y button todobutton\`.
 A continuación de la declaración de Component, aparece con el patrón de encadenamiento, un método, \`render\`, precisamente, éste método corresponde al Objeto Component que el Módulo Component devuelve tras su instanciación a la propiedad \`this.todo\`, con esta sentencia, se instruye a JavaScriṕt que una vez creado el Componente HTML para \`this.todo\` lo inserte en el Elemento HTML residente en el DOM \`\'container\'\` que fue enviado en el parámetro \`props\`, o si éste tiene un valor nulo, vacío, falso o falsy, etc., envíe una cadena vacía; luego, ...sí. Rocfor.js se encargará de buscar el Elemento HTML \`\'container\'\` voluntariosa y afanadamente, en caso de fracasar en su intento, tomará la decisión de insertar de modo predeterminado al nuevo Componente en el Elemento HTML \`body\` del DOM.
 Ahora, toca a las siguientes y últimas líneas 15. a 20., que corresponden al método \`task\` de la Clase, que en esencia se encarga de crear un nuevo Elemento HTML e insertarlo a continuación del botón \`todobutton\`, como un Elemento Hijo del Elemento HTML Padre del Componente cuya clase es \`SimpleTodo\`:
@@ -561,7 +563,7 @@ ___¡Rocfor.js!___
 ?  
 ?  
 
-id(tuto-aside)class(Tuto-aside.one.one-g-20.m-top-5.rel)? 
+id(tuto-aside)class(Tuto-aside.one.one-g-20.m-top-5.rel.d-none.M-d-block)? 
 id(tuto-menu)class(thm-listnone.fix)* [Inicio e instalación](#init "Ver cómo iniciar con Rocfor.js") 
 * [Módulo Tag](#tag "Crear un Elemento HTML con Tag")
 * [Módulo Block](#block "Crear un Bloque de elementos HTML con Block")
