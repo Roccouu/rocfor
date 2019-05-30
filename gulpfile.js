@@ -21,9 +21,10 @@ const gulp = require('gulp'),
 				rweb: {
 					src: './project-dev/web-dev/rocforjs-web',
 					temp: './project-dev/web-dev/rocforjs-web/tempweb',
-					dist: './assets'
+					dest: './docs',
+					dist: './docs/assets'
 				},
-				rdoc: { src: './project-dev/web-dev/rocforjs-docs', dest: './docs' }
+				rdoc: { src: './project-dev/web-dev/rocforjs-docs', dest: './docs/docs' }
 			},
 			files = {
 				sass: [ `../../../../project-dist/rocforcss/rocfor-${version}.min.css`, './css/rocforweb.css' ],
@@ -144,12 +145,12 @@ gulp.task('rw-html', () => {
 						.src( files.rw.html )
 						.pipe( useref() )
 						// .pipe( htmlmin( opt.htmlmin ) )
-						.pipe( gulp.dest('./') )
+						.pipe( gulp.dest( dir.rweb.dest ) )
 });
 gulp.task('rw-static', () => {
 	return gulp
 						.src( files.rw.static )
-						.pipe( gulp.dest( './' ) )
+						.pipe( gulp.dest( dir.rweb.dist ) )
 });
 gulp.task('rw-img', () => {
 	return gulp
@@ -171,6 +172,6 @@ gulp.task('docs-html', () => {
 });
 gulp.task('docs', () => {
 	return gulp
-						.src( `${dir.rdoc.src}/**/` )
+						.src( `${dir.rdoc.src}/**/*.*` )
 						.pipe( gulp.dest( dir.rdoc.dest ) )
 });

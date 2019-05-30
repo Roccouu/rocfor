@@ -151,7 +151,7 @@ class(thm-title)Descargar:
 ?  
 class(one.M-one-g-33)? 
 class(roc.center.copycom)? 
-[Roccou](https://twitter.com/_roccou "Roccou")
+[Roccou](https://twitter.com/&#95;roccou "Roccou")
 Potosí - Bolivia - ${this.date.getFullYear()}
 ?  
 ?  
