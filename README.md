@@ -215,15 +215,15 @@ console.log(test.mycomp.getComponent())
 
 ## Website
 
-[Rocfor.js](https://github.com/roccouu/rocfor/)
+[Rocfor.js](https://roccouu.github.io/rocfor/)
 
 ## Tutorial
 
-[Rocfor.js tutorial](https://github.com/roccouu/rocfor/index.html#/tutorial)
+[Rocfor.js tutorial](https://roccouu.github.io/rocfor/index.html#/tutorial)
 
 ## Documentation
 
-[Rocfor.js Docs](https://github.com/roccouu/rocfor/index.html#/docs)
+[Rocfor.js Docs](https://roccouu.github.io/rocfor/index.html#/docs)
 
 ## Contributing
 
